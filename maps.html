@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/prism.css">
+  <meta name="description" content="">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+  <meta property="og:image:alt" content="">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.png">
+
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+  <h1>MAPS</h1>
+  <a href="index.html">RETURN</a>
+
+  <h2>Declaración</h2>
+  <pre><code class="language-javascript">
+    let myMap = new Map()
+
+    console.log(myMap)
+  </code></pre>
+
+  <h2>Inicialización</h2>
+  <pre><code class="language-javascript">
+    myMap = new Map([
+        ["name", "Brais"],
+        ["email", "braismoure@mouredev.com"],
+        ["age", 37]
+    ])
+
+    console.log(myMap)
+  </code></pre>
+
+  <h2>Métodos y propiedades</h2>
+  <pre><code class="language-javascript">
+    // set
+
+    myMap.set("alias", "mouredev")
+    myMap.set("name", "Brais Moure")
+
+    console.log(myMap)
+
+    // get
+
+    console.log(myMap.get("name"))
+    console.log(myMap.get("surname"))
+
+    // has
+
+    console.log(myMap.has("surname"))
+    console.log(myMap.has("age"))
+
+    // delete
+
+    myMap.delete("email")
+
+    console.log(myMap)
+
+    // keys, values y entries
+
+    console.log(myMap.keys())
+    console.log(myMap.values())
+    console.log(myMap.entries())
+
+    // size
+
+    console.log(myMap.size)
+
+    // clear
+
+    myMap.clear()
+
+    console.log(myMap)
+  </code></pre>
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/prism.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-scss.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-javascript.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-html.min.js"></script>
+
+
+
+</body>
+
+</html>

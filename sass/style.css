@@ -1,0 +1,19 @@
+/* Error: Undefined variable.
+ *    ,
+ * 15 |         font-family: $font-primary;
+ *    |                      ^^^^^^^^^^^^^
+ *    '
+ *   sass\layout\_body.scss 15:22   @use
+ *   sass\layout\_layout.scss 11:1  @use
+ *   sass\style.scss 5:1            root stylesheet */
+
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Undefined variable.\a    \2577 \a 15 \2502          font-family: $font-primary;\d\a    \2502                       ^^^^^^^^^^^^^\a    \2575 \a   sass\\layout\\_body.scss 15:22   @use\a   sass\\layout\\_layout.scss 11:1  @use\a   sass\\style.scss 5:1            root stylesheet";
+}

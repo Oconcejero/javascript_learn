@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/prism.css">
+  <meta name="description" content="">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+  <meta property="og:image:alt" content="">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.png">
+
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+  <h1>CONDICIONALES</h1>
+  <a href="index.html">RETURN</a>
+<h2>if (si)</h2>
+<pre><code class="language-javascript">let age = 37
+
+if (age == 37) {
+    console.log("La edad es 37")
+}
+</code></pre>
+
+<h2>else (si no)</h2>
+<pre><code class="language-javascript">if (age == 37) {
+    console.log("La edad es 37")
+} else {
+    console.log("La edad no es 37")
+}
+</code></pre>
+
+<h2>else if (si no, si)</h2>
+<pre><code class="language-javascript">if (age == 37) {
+    console.log("La edad es 37")
+} else if (age < 18) {
+    console.log("Es menor de edad")
+} else {
+    console.log("La edad no es 37 ni es menor de edad")
+}
+</code></pre>
+
+<h2>Operador ternario</h2>
+<pre><code class="language-javascript">const message = age == 37 ? "La edad es 37" : "La edad no es 37"
+console.log(message)
+</code></pre>
+
+<h2>Switch</h2>
+<pre><code class="language-javascript">let day = 3
+let dayName
+
+switch (day) {
+    case 0:
+        dayName = "Lunes"
+        break
+    case 1:
+        dayName = "Martes"
+        break
+    case 2:
+        dayName = "Miércoles"
+        break
+    case 3:
+        dayName = "Jueves"
+        break
+    case 4:
+        dayName = "Viernes"
+        break
+    case 5:
+        dayName = "Sábado"
+        break
+    case 6:
+        dayName = "Domingo"
+        break
+    default:
+        dayName = "Número de día incorrecto"
+}
+
+console.log(dayName)
+</code></pre>
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/prism.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-scss.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-javascript.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-html.min.js"></script>
+
+
+
+</body>
+
+</html>

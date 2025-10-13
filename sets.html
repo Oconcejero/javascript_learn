@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/prism.css">
+  <meta name="description" content="">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+  <meta property="og:image:alt" content="">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.png">
+
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+  <h1>SETS</h1>
+  <a href="index.html">RETURN</a>
+<h2>Declaración</h2>
+<pre><code class="language-javascript">let mySet = new Set()
+
+console.log(mySet)
+</code></pre>
+
+<h2>Inicialización</h2>
+<pre><code class="language-javascript">mySet = new Set(["Brais", "Moure", "mouredev", 37, true, "braismoure@mouredev.com"])
+
+console.log(mySet)
+</code></pre>
+
+<h2>Métodos comunes</h2>
+<pre><code class="language-javascript">console.log(greeting[0])
+console.log(greeting[11])
+</code></pre>
+
+<h2>Métodos comunes</h2>
+<pre><code class="language-javascript">// add y delete
+
+mySet.add("https://moure.dev")
+
+console.log(mySet)
+
+mySet.delete("https://moure.dev")
+
+console.log(mySet)
+
+console.log(mySet.delete("Brais"))
+console.log(mySet.delete(4))
+
+console.log(mySet)
+
+// has
+
+console.log(mySet.has("Moure"))
+console.log(mySet.has("Brais"))
+
+// size
+
+console.log(mySet.size)
+</code></pre>
+
+<h2>Convertir un set a array</h2>
+<pre><code class="language-javascript">let myArray = Array.from(mySet)
+console.log(myArray)
+</code></pre>
+
+<h2>Convertir un array a set</h2>
+<pre><code class="language-javascript">mySet = new Set(myArray)
+console.log(mySet)
+</code></pre>
+
+<h2>No admiten duplicados</h2>
+<pre><code class="language-javascript">mySet.add("braismoure@mouredev.com")
+mySet.add("braismoure@mouredev.com")
+mySet.add("braismoure@mouredev.com")
+mySet.add("BraisMoure@mouredev.com")
+console.log(mySet)
+</code></pre>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/prism.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-scss.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-javascript.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-html.min.js"></script>
+
+
+
+</body>
+
+</html>

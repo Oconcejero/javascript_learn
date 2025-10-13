@@ -1,4 +1,5 @@
-@use 'variables';
+@use 'variables' as variables;
+$font-primary: variables.$font-primary;
 @use 'functions';
 @use 'mixins';
 @use 'placeholders';

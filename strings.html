@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/prism.css">
+  <meta name="description" content="">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+  <meta property="og:image:alt" content="">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.png">
+
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+  <h1>STRINGS - CADENAS DE TEXTO</h1>
+  <a href="index.html">RETURN</a>
+
+  <h2>Concatenación</h2>
+  <pre><code class="language-javascript">
+    let myName = "Brais"
+    let greeting = "Hola, " + myName + "!"
+    console.log(greeting)
+    console.log(typeof greeting)
+  </code></pre>
+
+  <h2>Longitud</h2>
+  <pre><code class="language-javascript">
+    console.log(greeting.length)
+  </code></pre>
+
+  <h2>Acceso a caracteres</h2>
+  <pre><code class="language-javascript">
+    console.log(greeting[0])
+    console.log(greeting[11])
+  </code></pre>
+
+  <h2>Métodos comunes</h2>
+  <pre><code class="language-javascript">
+    console.log(greeting.toUpperCase()) // Mayúsculas
+    console.log(greeting.toLowerCase()) // Minúsculas
+    console.log(greeting.indexOf("Hola")) // Índice
+    console.log(greeting.indexOf("Brais"))
+    console.log(greeting.indexOf("MoureDev"))
+    console.log(greeting.includes("Hola")) // Incluye
+    console.log(greeting.includes("Brais"))
+    console.log(greeting.includes("MoureDev"))
+    console.log(greeting.slice(0, 10)) // Sección
+    console.log(greeting.replace("Brais", "MoureDev")) // Reemplazo
+  </code></pre>
+
+  <h2>Strings en varias líneas</h2>
+  <pre><code class="language-javascript">
+    let message = `Hola, este
+    es mi
+    curso de
+    JavaScript`
+    console.log(message)
+  </code></pre>
+
+  <h2>Interpolación de valores</h2>
+  <pre><code class="language-javascript">
+    let email = "braismoure@mouredev.com"
+    console.log(`Hola, ${myName}! Tu email es ${email}.`)
+  </code></pre>
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/prism.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-scss.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-javascript.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-html.min.js"></script>
+
+
+
+</body>
+
+</html>
