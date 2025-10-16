@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/prism.css">
+  <meta name="description" content="">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+  <meta property="og:image:alt" content="">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.png">
+
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+  <h1>CLASES</h1>
+  <a href="index.html">RETURN</a>
+
+<h2>Definición</h2>
+<pre><code class="language-javascript">
+    class animal {
+        constructor(//parámetros de la clase) {
+
+        }
+    }
+// "this" crea una propiedad que va a llamarse: " "
+// "this" solo sirve dentro de la clase y solo en
+// el constructor. Fuera NO
+  class animal {
+      constructor(especie, edad, color) {
+          this.especie = especie
+          this.edad = edad
+          this.color = color
+      }
+  }
+</code></pre>
+
+<h2>Sintaxis</h2>
+<pre><code class="language-javascript">
+    //"new" crea un objeto de la clase especifica
+  const perro = new animal()
+   console.log(perro) // object, no está defindo
+
+  const perro = new animal('perro', 5, 'rojo')
+   console.log(perro) // especie: perro, edad: 5, color: rojo 
+
+  console.log(typeof animal) // object
+</code></pre>
+
+<h2>Valores por defecto</h2>
+<pre><code class="language-javascript">
+  class animal {
+      constructor(especie = animal, edad = 0, color = incoloro) {
+          this.especie = especie
+          this.edad = edad
+          this.color = color
+          this.info = `soy ${this.especie}, tengo ${this.edad} años
+          y soy de color ${this.color}`;
+      }
+  }
+
+  const gato = new animal("gato", 5)
+
+  console.log(gato) // especie: gato, edad: 5, color: incoloro
+</code></pre>
+
+<h2>Acceso a propiedades</h2>
+<pre><code class="language-javascript">
+  console.log(gato.edad)
+  console.log(gato["edad"])
+
+  //También se puede modificar el valor
+  gato.color = "azulado"
+
+  console.log(gato.color) // azulado
+</code></pre>
+
+<h2>Funciones en clases - métodos</h2>
+<pre><code class="language-javascript">
+  class animal {
+      constructor(especie = animal, edad = 0, color = incoloro) {
+          this.especie = especie
+          this.edad = edad
+          this.color = color
+          this.info = `soy ${this.especie}, tengo ${this.edad} años
+          y soy de color ${this.color}`;
+      }
+      verInfo(){
+        console.log(this.info)
+      }
+  }
+
+  const perro = new animal('perro', 5, 'rojo')
+
+  perro.verInfo(); //`soy perro, tengo 5 años y soy de color rojo
+
+
+</code></pre>
+
+<h2>Propiedades privadas</h2>
+<pre><code class="language-javascript">
+  class PrivatePerson {
+
+      #bank
+
+      constructor(name, age, alias, bank) {
+          this.name = name
+          this.age = age
+          this.alias = alias
+          this.#bank = bank
+      }
+
+      pay() {
+          this.#bank
+      }
+
+  }
+
+  let person5 = new PrivatePerson("Brais", 37, "MoureDev", "IBAN123456789")
+
+  // No podemos acceder
+  // console.log(person5.bank) 
+  // person5.bank = "new IBAN123456789" // bank no es #bank
+
+  console.log(person5)
+
+  // Getters y Setters
+
+    class perro extends animal {
+        constructor (especie,edad,color,raza){
+            super(especie,edad,color); //hereda las propiedades
+            this.raza = null; //Dato que dentro no tiene nada,
+            //Cómo modificarlo?
+        }
+        //Modificar un valor
+        set Raza(newName){
+            this.raza=newName;
+        }
+        //Obtener un valor
+        get getRaza(){
+            return this.raza;
+        }
+    }
+
+    perro.setRaza = "Pedro"; //Pedro
+    console.log(perro.getRaza) //Pedro
+  
+</code></pre>
+
+
+
+<h2>Herencia</h2>
+<p>La herencia es crear una clase que va a tomartodo lo que puede hacer otra clase y agregarle cosas nuevas.</p>
+<pre><code class="language-javascript">
+class animal {
+      constructor(especie = animal, edad = 0, color = incoloro) {
+          this.especie = especie
+          this.edad = edad
+          this.color = color
+          this.info = `soy ${this.especie}, tengo ${this.edad} años
+          y soy de color ${this.color}`;
+      }
+      verInfo(){
+        console.log(this.info)
+      }
+  }
+
+  class perro extends animal {
+    constructor (especie,edad,color,raza){
+        super(especie,edad,color); //hereda las propiedades
+        this.raza = raza;
+    }
+  }
+
+const perro = new perro('perro', 5, 'rojo', 'doberman') //ERROR
+// No se puede tener un objeto con el mismo nombre que la clase
+
+//-------------------------------------------------------------
+
+class Animal {
+      constructor(especie = animal, edad = 0, color = incoloro) {
+          this.especie = especie
+          this.edad = edad
+          this.color = color
+          this.info = `soy ${this.especie}, tengo ${this.edad} años
+          y soy de color ${this.color}`;
+      }
+      verInfo(){
+        console.log(this.info)
+      }
+  }
+
+  class Perro extends Animal {
+    constructor (especie,edad,color,raza){
+        super(especie,edad,color); //hereda las propiedades
+        this.raza = raza;
+    }
+    //se pueden añadir métodos nuevos
+    ladrar( {
+        console.log('WAW!')
+    })
+  }
+
+const perro = new Perro('perro', 5, 'rojo', 'doberman')
+// Es clase Perro y no Animal, pero hereda
+  
+</code></pre>
+
+<h2>Métodos estáticos</h2>
+<p>No necesita que la clase se defina para poder ser creado.</p>
+<pre><code class="language-javascript">
+  class MathOperations {
+
+      static sum(a, b) {
+          return a + b
+      }
+  }
+
+  console.log(MathOperations.sum(5, 10))
+</code></pre>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/prism.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-scss.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-javascript.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-html.min.js"></script>
+
+
+
+</body>
+
+</html>

@@ -37,8 +37,8 @@
   <h2>Inicialización</h2>
   <pre><code class="language-javascript">
     myMap = new Map([
-        ["name", "Brais"],
-        ["email", "braismoure@mouredev.com"],
+        ["name", "Usuario"],
+        ["email", "usuario@mail.com"],
         ["age", 37]
     ])
 
@@ -47,24 +47,24 @@
 
   <h2>Métodos y propiedades</h2>
   <pre><code class="language-javascript">
-    // set
+    // set - Actualizar elemento o agregarlo
 
-    myMap.set("alias", "mouredev")
-    myMap.set("name", "Brais Moure")
+    myMap.set("alias", "usuarioAlias") //Añade clave:valor
+    myMap.set("name", "Usuario2") //Modifica la clave:valor
 
     console.log(myMap)
 
-    // get
+    // get - Para recuperar el valor
 
-    console.log(myMap.get("name"))
-    console.log(myMap.get("surname"))
+    console.log(myMap.get("name")) //Imprime el valor de la clave "name"
+    console.log(myMap.get("surname")) //"Undefined" la clave no existe
 
-    // has
+    // has - Sirve para saber si existe o no dando true/false
 
-    console.log(myMap.has("surname"))
-    console.log(myMap.has("age"))
+    console.log(myMap.has("surname")) //false
+    console.log(myMap.has("age")) //true
 
-    // delete
+    // delete - Elimina por "clave"
 
     myMap.delete("email")
 
@@ -72,15 +72,15 @@
 
     // keys, values y entries
 
-    console.log(myMap.keys())
-    console.log(myMap.values())
-    console.log(myMap.entries())
+    console.log(myMap.keys()) //Retorna listado con las claves
+    console.log(myMap.values()) //Retorna listado con los valores
+    console.log(myMap.entries()) //Retorna los pares
 
-    // size
+    // size - Retorna el tamaño del mapa
 
     console.log(myMap.size)
 
-    // clear
+    // clear - Para limpiar el mapa completo
 
     myMap.clear()
 

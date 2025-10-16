@@ -72,40 +72,53 @@ console.log(myArray)</code></pre>
 <pre><code class="language-javascript">myArray = []</code></pre>
 
 <h2>Push y Pop</h2>
-<pre><code class="language-javascript">myArray.push("Brais")
-myArray.push("Moure")
-myArray.push("mouredev")
-myArray.push(37)
+<pre><code class="language-javascript">
+  //Añade elementos al final de la lista
+  myArray.push("Brais")
+  myArray.push("Moure")
+  myArray.push("mouredev")
+  myArray.push(37)
 
-console.log(myArray)
+  console.log(myArray)
+  
+  // Elimina el último y lo devuelve
+  console.log(myArray.pop()) 
+  myArray.pop()
 
-console.log(myArray.pop()) // Elimina el último y lo devuelve
-myArray.pop()
-
-console.log(myArray)</code></pre>
+  console.log(myArray)
+</code></pre>
 
 <h2>Shift y Unshift</h2>
-<pre><code class="language-javascript">console.log(myArray.shift())
-console.log(myArray)
+<pre><code class="language-javascript">
+  //Elimina el primer elemento de la lista
+  console.log(myArray.shift())
+  console.log(myArray)
 
-myArray.unshift("Brais", "mouredev")
-console.log(myArray)</code></pre>
+  //Añade los elementos al principio de la lista
+  myArray.unshift("Brais", "mouredev")
+  console.log(myArray)
+</code></pre>
 
 <h2>Length</h2>
-<pre><code class="language-javascript">console.log(myArray.length)</code></pre>
+<pre><code class="language-javascript">
+  console.log(myArray.length)
+</code></pre>
 
 <h2>Clear</h2>
-<pre><code class="language-javascript">myArray = []
-myArray.length = 0 // alternativa
-console.log(myArray)</code></pre>
+<pre><code class="language-javascript">
+  myArray = []
+  myArray.length = 0 // alternativa
+  console.log(myArray)
+</code></pre>
 
 <h2>Slice</h2>
-<pre><code class="language-javascript">myArray = ["Brais", "Moure", "mouredev", 37, true]
+<pre><code class="language-javascript">
+  myArray = ["Brais", "Moure", "mouredev", 37, true]
 
-let myNewArray = myArray.slice(1, 3)
+  let myNewArray = myArray.slice(1, 3)
 
-console.log(myArray)
-console.log(myNewArray)
+  console.log(myArray)
+  console.log(myNewArray)
 </code></pre>
 
 <h2>Splice</h2>

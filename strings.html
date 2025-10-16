@@ -24,20 +24,19 @@
 </head>
 
 <body>
-  <h1>STRINGS - CADENAS DE TEXTO</h1>
+  <h1>STRINGS - CADENAS DE TEXTO - MÉTODOS</h1>
   <a href="index.html">RETURN</a>
 
   <h2>Concatenación</h2>
+  <p>Junta dos o más cadenas y retorna una nueva</p>
   <pre><code class="language-javascript">
-    let myName = "Brais"
+    let myName = "Paco"
     let greeting = "Hola, " + myName + "!"
-    console.log(greeting)
-    console.log(typeof greeting)
-  </code></pre>
+    console.log(greeting) // Hola, Paco!
 
-  <h2>Longitud</h2>
-  <pre><code class="language-javascript">
-    console.log(greeting.length)
+    let cadena = "cadena de prueba";
+    resultado = cadena.concat(" primera")
+    console.log(resultado) // cadena de prueba primera
   </code></pre>
 
   <h2>Acceso a caracteres</h2>
@@ -46,18 +45,156 @@
     console.log(greeting[11])
   </code></pre>
 
-  <h2>Métodos comunes</h2>
+  <h2>length( )</h2>
+  <p>Devuelve el número de caracteres de la cadena</p>
   <pre><code class="language-javascript">
-    console.log(greeting.toUpperCase()) // Mayúsculas
-    console.log(greeting.toLowerCase()) // Minúsculas
-    console.log(greeting.indexOf("Hola")) // Índice
-    console.log(greeting.indexOf("Brais"))
-    console.log(greeting.indexOf("MoureDev"))
-    console.log(greeting.includes("Hola")) // Incluye
-    console.log(greeting.includes("Brais"))
-    console.log(greeting.includes("MoureDev"))
-    console.log(greeting.slice(0, 10)) // Sección
-    console.log(greeting.replace("Brais", "MoureDev")) // Reemplazo
+    let cadena1 = "cadena de prueba";
+    console.log(cadena1.length) //16
+  </code></pre>
+
+  <h2>startsWith( )</h2>
+  <p>Si una cadena comienza con los caracteres de otra, devuelve true, sino, devuelve false</p>
+  <pre><code class="language-javascript">
+    let cadena1 = "cadena de prueba";
+    let cadena2 = "cadena secundaria";
+    let cadena3 = "esta es otra cadena de prueba";
+
+    resultado = cadena1.startsWith(cadena2);
+    console.log(resultado); //true
+    resultado = cadena1. startsWith(cadena3);
+    console.log(resultado); //false
+  </code></pre>
+
+  <h2>endsWith( )</h2>
+  <p>Si una cadena termina con los caracteres de otra, devuelve true, sino, devuelve false</p>
+  <pre><code class="language-javascript">
+    let cadena1 = "cadena de prueba";
+    let cadena2 = "cadena secundaria";
+    let cadena3 = "esta es otra cadena de prueba";
+
+    resultado = cadena1.endsWith(cadena2);
+    console.log(resultado); //false
+    resultado = cadena3. endsWith(cadena1);
+    console.log(resultado); //true
+  </code></pre>
+
+  <h2>includes( )</h2>
+  <p>Si una cadena puede encontrarse dentro de otro devuelve true, sino, devuelve false</p>
+  <pre><code class="language-javascript">
+    let cadena1 = "cadena de prueba";
+    let cadena2 = "cadena secundaria";
+    let cadena3 = "esta es otra cadena de prueba";
+
+    resultado = cadena1.includes(cadena2);
+    console.log(resultado); //false
+    resultado = cadena3. includes(cadena1);
+    console.log(resultado); //true
+  </code></pre>
+
+  <h2>indexOf( )</h2>
+  <p>Devuelve el índice del primer caracter de la cadena. Si no existe, devuelve -1</p>
+  <pre><code class="language-javascript">
+    let cadena1 = "cadena de prueba";
+
+    resultado = cadena1.indexOf('prueba');
+    console.log(resultado); //10, la posición de la primera letra
+  </code></pre>
+
+  <h2>lastIndexOf( )</h2>
+  <p>Devuelve el último índice del primer caracter de la cadena. Si no existe, devuelve -1</p>
+  <pre><code class="language-javascript">
+    let cadena1 = "cadena de prueba prueba prueba";
+
+    resultado = cadena1.lastIndexOf('prueba');
+    console.log(resultado); //24, la posición de la primera letra del último índice
+  </code></pre>
+
+  <h2>padStart( ) & endStart( )</h2>
+  <p>Rellena la cadena con los caracteres indicados.</p>
+  <pre><code class="language-javascript">
+    let cadena1 = "345";
+
+    resultado = cadena1.padStart(5,"12");
+    console.log(resultado); //12345
+    resultado = cadena1.padEnd(5,"67");
+    console.log(resultado); //34567
+  </code></pre>
+
+  <h2>repeat( )</h2>
+  <p>Devuelve la cadena repatida tantas veces se indique</p>
+  <pre><code class="language-javascript">
+    let cadena1 = "345 ";
+
+    resultado = cadena1.repeat(5);
+    console.log(resultado); //345 345 345 345 345
+    resultado = cadena1.repeat(-1);
+    console.log(resultado); //ERROR
+  </code></pre>
+
+  <h2>split( )</h2>
+  <p>Divide la cadena según se especifique</p>
+  <pre><code class="language-javascript">
+    let cadena1 = "Hola, como, estás";
+
+    resultado = cadena1.split(",");
+    console.log(resultado); //[ 'Hola', ' como', ' estás' ]
+  </code></pre>
+
+  <h2>substring( )</h2>
+  <p>Devuelve el pedazo de cadena que seleccionamos</p>
+  <pre><code class="language-javascript">
+    let cadena1 = "ABCDEFGHIJK";
+
+    resultado = cadena1.substring(5,9);
+    console.log(resultado); //FGHI
+  </code></pre>
+
+  <h2>toLowerCase( )</h2>
+  <p>Convierte una cadena a minúsculas</p>
+  <pre><code class="language-javascript">
+    let cadena1 = "HolA, como Estás";
+
+    resultado = cadena1.toLowerCase();
+    console.log(resultado); // hola, como estás
+  </code></pre>
+
+  <h2>toUpperCase( )</h2>
+  <p>Convierte una cadena a mayúsculas</p>
+  <pre><code class="language-javascript">
+    let cadena1 = "HolA, como Estás";
+
+    resultado = cadena1.toLowerCase();
+    console.log(resultado); // HOLA, COMO ESTÁS
+  </code></pre>
+
+  <h2>toString( )</h2>
+  <p>Devuelve una cadena que representa al objeto especificado</p>
+  <pre><code class="language-javascript">
+  let cadena1 = 50;
+
+    resultado = cadena1.toString();
+    console.log(resultado); //50
+    console.log(typeof(resultado)); //string
+  </code></pre>
+
+  <h2>trim( )</h2>
+  <p>elimina los espacios en blandco al principio y al final de una cadena</p>
+  <pre><code class="language-javascript">
+  let cadena1 = "   Pedro   ";
+
+    resultado = cadena1.trim();
+    console.log(resultado); //"pedro"
+  </code></pre>
+
+  <h2>trimEnd( ) & trimStart</h2>
+  <p>Elimina los espacios en blanco al principio o al final de la cadena</p>
+  <pre><code class="language-javascript">
+  let cadena1 = "   Pedro   ";
+
+    resultado = cadena1.trimEnd();
+    console.log(resultado); //"   pedro"
+    resultado = cadena1.trimStart();
+    console.log(resultado); //"pedro   "
   </code></pre>
 
   <h2>Strings en varias líneas</h2>
@@ -71,8 +208,10 @@
 
   <h2>Interpolación de valores</h2>
   <pre><code class="language-javascript">
-    let email = "braismoure@mouredev.com"
-    console.log(`Hola, ${myName}! Tu email es ${email}.`)
+    let email = "usuario@gmail.com"
+    let nombre = "Lucas"
+    console.log(`Hola, ${nombre}! Tu email es ${email}.`)
+    //Hola, Lucas! Tu email es usuario@gmail.com
   </code></pre>
 
 <script src="https://cdn.jsdelivr.net/npm/prismjs@1/prism.min.js"></script>

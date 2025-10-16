@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/prism.css">
+  <meta name="description" content="">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+  <meta property="og:image:alt" content="">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.png">
+
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+  <h1>PROTOTIPOS</h1>
+  <a href="index.html">RETURN</a>
+  
+<h2>Definición</h2>
+<pre><code class="language-javascript">
+  //Un PROTOTIPO es como un delegado.
+  //Alguien a quien le damos una responsabilidad
+  //y la confiamos en él.
+</code></pre>
+
+<h2>Creación de un objeto</h2>
+<pre><code class="language-javascript">
+  const persona = {
+    profesion: 'Sin profesión',
+    saludar: function (nombre) {
+      console.log(`Hola ${nombre} ¿qué tal estás?`)
+    }
+  }
+</code></pre>
+
+<h2>Creación de segundo objeto</h2>
+<pre><code class="language-javascript">
+  const alumno = {
+  id: 1,
+  nombre: 'Bienve',
+  edad: 39,
+  master: 'FullStack',
+  profesion: 'Estudiante',
+  toString: function () {
+    console.log(`Hola, mi nombre es ${this.nombre} y tengo ${this.edad} años`);
+  }
+}
+</code></pre>
+
+<h2>Asignar un prototipo</h2>
+<pre><code class="language-javascript">
+  // alumno.__proto__ = persona; - forma de hacerlo no recomendable
+  // Object.setPrototypeOf(alumno, persona); - esta tampoco
+
+  // persona.despedirse = function () {
+  //   console.log('Adiós');
+  // }
+
+  // console.log(persona.isPrototypeOf(alumno));
+
+  // La forma correcta sería esta.
+
+  // let a = Object.create(persona);
+  // let alumno1 = new Object(alumno);
+</code></pre>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/prism.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-scss.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-javascript.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-html.min.js"></script>
+
+
+
+</body>
+
+</html>

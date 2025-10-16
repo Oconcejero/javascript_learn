@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/prism.css">
+  <meta name="description" content="">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+  <meta property="og:image:alt" content="">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.png">
+
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+  <h1>FUNCIONES</h1>
+  <a href="index.html">RETURN</a>
+
+<h2>Simple</h2>
+<pre><code class="language-javascript">
+  function myFunc() {
+      console.log("¡Hola, función!")
+  }
+
+//Invocar a la función
+
+  myFunc() // ¡Hola, función!
+
+//Incluir dentro de un bucle
+
+  for (let i = 0; i < 5; i++) {
+      myFunc()
+  }
+</code></pre>
+
+<h2>Con parámetros</h2>
+<pre><code class="language-javascript">
+  // Declara los parámetros dentro de la función
+  function suma(num1, num2) {
+      let res = num1 + num2;
+      console.log(res);
+  }
+
+  suma(12,32) //44
+</code></pre>
+
+<h2>Funciones anónimas</h2>
+<pre><code class="language-javascript">
+  //Función sin un nombre definido
+  //Hay que asignarla a una constante
+  //o variable para poder ser invocada
+
+  const myFunc2 = function (name) {
+      console.log(`¡Hola, ${name}!`)
+  }
+
+  myFunc2("Brais Moure")
+</code></pre>
+
+<h2>Arrow functions</h2>
+<pre><code class="language-javascript">
+  // Se sustituye "function" por una flecha
+  // y se coloca después
+  const saludar = ()=>{
+
+  }
+
+  const saludar = (name) => {
+      console.log(`¡Hola, ${name}!`)
+  }
+
+  //Forma de simplificarla más si es simple si tiene
+  //un parámetro solo y si solo tiene una expresión
+  const saludar2 = (name) => console.log(`¡Hola, ${name}!`)
+
+  saludar("Luis") // ¡Hola, Luis!
+  saludar2("Enrique") // ¡Hola, Enrique!
+</code></pre>
+
+<h2>Parámetros</h2>
+<pre><code class="language-javascript">
+  function sum(a, b) {
+      console.log(a + b)
+  }
+
+  sum(5, 10)
+  sum(5) //Nan, error al sumar 5 y nada
+  sum() //Nan, error al no sumar ningún parámetro
+
+  //Manera de asignar "por defecto" el
+  //valor 0 a los parámetros y evita errores
+  function defaultSum(a = 0, b = 0) {
+      console.log(a + b)
+  }
+</code></pre>
+
+<h2>Por defecto</h2>
+<pre><code class="language-javascript">
+  defaultSum()
+  defaultSum(5)
+  defaultSum(5, 10)
+  defaultSum(undefined, 5)
+</code></pre>
+
+<h2>Retorno de valores</h2>
+<pre><code class="language-javascript">
+  //Sin necesidad de mostrar por terminal
+  //retorna los valores para poder ser usados luego
+  function mult(a, b) {
+      return a * b
+  }
+
+  let result = mult(5, 10)
+  console.log(result)
+</code></pre>
+
+<h2>Funciones anidadas</h2>
+<pre><code class="language-javascript">
+  function extern() {
+      console.log("Función externa")
+      function intern() {
+          console.log("Función interna")
+      }
+      intern()
+  }
+
+  extern()
+  //intern() está fuera del scope, por eso
+  //solo se puede llamar dentro de la función
+</code></pre>
+
+<h2>Funciones de orden superior</h2>
+<pre><code class="language-javascript">
+  //Funciones que reciben otras funciones como argumentos
+
+  function applyFunc(func, param) {
+      func(param)
+  }
+
+  applyFunc(myFunc4, "función de orden superior")
+</code></pre>
+
+<h2>forEach</h2>
+<pre><code class="language-javascript">
+  //Función que nos sirve para ejecutar bucles
+  //a elementos iterables
+  const myArray = [1, 2, 3, 4]
+
+  const mySet = new Set(["Brais", "Moure", "mouredev", 37, true, "braismoure@mouredev.com"])
+
+  const myMap = new Map([
+      ["name", "Brais"],
+      ["email", "braismoure@mouredev.com"],
+      ["age", 37]
+  ])
+
+  myArray.forEach(function (value) {
+      console.log(value)
+  })
+
+  myArray.forEach((value) => console.log(value))
+
+  mySet.forEach((value) => console.log(value))
+
+  myMap.forEach((value) => console.log(value))
+</code></pre>
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/prism.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-scss.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-javascript.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-html.min.js"></script>
+
+
+
+</body>
+
+</html>

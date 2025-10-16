@@ -15,6 +15,7 @@ body {
     }
     h1 {
         color: white;
+        text-align: center;
         font-size: 55px;
         margin-bottom: 50px;
         font-family: variables.$font-primary;
@@ -25,8 +26,8 @@ body {
         color: white;
         font-family: variables.$font-primary;
         font-size: 25px;
-        padding: 25px 45px;
-        width: 250px;
+        padding: 15px 25px;
+        width: 200px;
         background-color: variables.$primer-color;
         text-align: center;
         margin-top: 10px;
@@ -38,18 +39,27 @@ body {
         color: black;
         font-family: variables.$font-primary;
         font-size: 25px;
-        padding: 25px 45px;
-        width: 250px;
+        padding: 15px 25px;
+        width: 200px;
         background-color: variables.$segundo-color;
         text-align: center;
     }
     h2 {
+        display: flex;
+        justify-content: center;
         font-family: variables.$font-primary;
-        color: variables.$primer-color;
-        font-size: 55px;
+        color: variables.$segundo-color;
+        font-size: 35px;
+        margin-top: 5%;
     }
     h3 {
         font-family: variables.$font-primary;
         color: variables.$segundo-color;
+    }
+    p {
+        font-family: variables.$font-primary;
+        font-size: 25px;
+        color: white;
+        text-align: center;
     }
 }
