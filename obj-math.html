@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/prism.css">
+  <meta name="description" content="">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+  <meta property="og:image:alt" content="">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.png">
+
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+  <h1>OBJETO MATH</h1>
+  <a href="index.html">RETURN</a>
+<h2>sqrt( )</h2>
+<pre><code class="language-javascript">
+  //Devuelve la raíz cuadrada positiva de un número
+  
+  let numero = Math.sqrt(25)
+  console.log(numero) //5, La raíz cuadrada de 25
+   
+</code></pre>
+
+<h2>cbrt( )</h2>
+<pre><code class="language-javascript">
+  //Devuelve la raíz cúbica de un número
+
+  let numero = Math.cbrt(25)
+  console.log(numero) //2.924017738212866, La raíz cúbica de 25
+</code></pre>
+
+<h2>max( ) & min( )</h2>
+<pre><code class="language-javascript">
+  //Devuelven el mayor de cero o más números y
+  //el más pequeño de cero o más números
+
+  let numero = Math.max(4,5,7,8,6,25,35,124,584,21,5)
+  console.log(numero) //584, Devuelve el más grande
+
+  let numero = Math.min(4,5,7,8,6,25,35,124,584,21,5)
+  console.log(numero) //4, Devuelve el más pequeño
+</code></pre>
+
+<h2>random( )</h2>
+<pre><code class="language-javascript">
+  //Devuelve un número aleatorio entre 0 y 1
+
+  let numero = Math.random()
+  console.log(numero) //0.16092775158390604
+ 
+</code></pre>
+
+<h2>round( )</h2>
+<pre><code class="language-javascript">
+  //Devuelve el valor de un número redondeado al número entero más cercano
+
+  let numero = Math.random()*100;
+  numero = Math.round(numero);
+  console.log(numero) //74
+</code></pre>
+
+<h2>fround( )</h2>
+<pre><code class="language-javascript">
+  //Devuelve la representación flotante de precisión simple
+  //más cercana de un número
+
+  let numero = Math.fround(9.45215478542513265);
+  console.log(numero) //9.452155113220215 redondea a 4 bytes
+</code></pre>
+
+<h2>floor( )</h2>
+<pre><code class="language-javascript">
+  //Devuelve el número entero redondeado hacia abajo
+  
+  let numero = Math.floor(3.999);
+  console.log(numero) //3
+</code></pre>
+
+<h2>trunc( )</h2>
+<pre><code class="language-javascript">
+  //Devuelve la parte entera del número x, la eliminación de los dígitos fraccionarios
+ 
+  let numero = Math.trunc(9.10);
+  console.log(numero) //9 Elimina los decimales
+</code></pre>
+
+<h2>Propiedades</h2>
+<pre><code class="language-javascript">
+  //PI
+  let numero = Math.PI;
+  console.log(numero) //3.141592653589793
+
+  //SQRT1_2
+  let numero = Math.SQRT1_2;
+  console.log(numero) //0.7071067811865476
+
+  //SQRT2
+  let numero = Math.SQRT2;
+  console.log(numero) //1.4142135623730951
+
+  //E
+  let numero = Math.E;
+  console.log(numero) //2.718281828459045
+
+  //LN2
+  let numero = Math.LN2;
+  console.log(numero) //0.6931471805599453
+
+  //LN10
+  let numero = Math.LN10;
+  console.log(numero) //2.302585092994046
+
+  //LOG2E
+  let numero = Math.LOG2E;
+  console.log(numero) //1.4426950408889634
+
+  //LOG10E
+  let numero = Math.LOG10E;
+  console.log(numero) //0.4342944819032518
+
+</code></pre>
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/prism.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-scss.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-javascript.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-html.min.js"></script>
+
+
+
+</body>
+
+</html>

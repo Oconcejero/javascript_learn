@@ -26,29 +26,35 @@
 <body>
   <h1>LOOPS</h1>
   <a href="index.html">RETURN</a>
-<h2>for</h2>
-<pre><code class="language-javascript">
-  //inicio variable ; condición ; incremento o decremento
-    for (let i = 0; i < 5; i++) {
-      console.log(`Hola ${i}`)
-  }
 
-  //Recorrer estructura de números
-  const numbers = [1, 2, 3, 4, 5, 6, 7, 8]
+  <h2>for</h2>
+  <pre><code class="language-javascript">
+    //inicio variable ; condición ; incremento o decremento
+      for (let i = 0; i < 5; i++) {
+        console.log(`Hola ${i}`)
+    }
 
-  for (let i = 0; i < numbers.length; i++) {
-      console.log(`Elemento: ${numbers[i]}`)
-  }
-</code></pre>
+    //Recorrer estructura de números
+    const numbers = [1, 2, 3, 4, 5, 6, 7, 8]
+
+    for (let i = 0; i < numbers.length; i++) {
+        console.log(`Elemento: ${numbers[i]}`)
+    }
+
+  </code></pre>
+
+
 
 <h2>while</h2>
-<pre><code class="language-javascript">
-  let i = 0
-  while (i < 5) {
-      console.log(`Hola ${i}`)
-      i++
-  }
-</code></pre>
+  <pre><code class="language-javascript">
+    let i = 0
+    while (i < 5) {
+        console.log(`Hola ${i}`)
+        i++
+    }
+
+  </code></pre>
+
 
 <h2>do while</h2>
 <pre><code class="language-javascript">
@@ -58,6 +64,7 @@
       console.log(`Hola ${i}`)
       i++
   } while (i < 5)
+
 </code></pre>
 
 <h2>for in</h2>
@@ -72,18 +79,20 @@
   for (animal in animales) {
     console.log(animales[animal]) //'gato','perro','pez'
   }
+
 </code></pre>
 
 <h2>for of</h2>
 <pre><code class="language-javascript">
   //Devuelve el valor
+  
   const myArray = [1, 2, 3, 4]
 
-  const mySet = new Set(["Brais", "Moure", "mouredev", 37, true, "braismoure@mouredev.com"])
+  const mySet = new Set(["Luis", "Muñoz", "L.Muñoz", 37, true, "lmunoz@gmail.com"])
 
   const myMap = new Map([
-      ["name", "Brais"],
-      ["email", "braismoure@mouredev.com"],
+      ["name", "Luis"],
+      ["email", "lmunoz@gmail.com"],
       ["age", 37]
   ])
 
@@ -104,6 +113,39 @@
   for (let value of myString) {
       console.log(value)
   }
+
+  //1
+  //2
+  //3
+  //4
+  //Luis
+  //Muñoz
+  //L.Muñoz
+  //37
+  //true
+  //lmunoz@gmail.com
+  //[ 'name', 'Luis' ]
+  //[ 'email', 'lmunoz@gmail.com' ]
+  //[ 'age', 37 ]
+  //¡
+  //H
+  //o
+  //l
+  //a
+  //,
+  //
+  //J
+  //a
+  //v
+  //a
+  //S
+  //c
+  //r
+  //i
+  //p
+  //t
+  //!
+
 </code></pre>
 
 <h2>break y continue</h2>
@@ -117,6 +159,7 @@
       }
       console.log(`Hola ${i}`)
   }
+
 </code></pre>
 
 <script src="https://cdn.jsdelivr.net/npm/prismjs@1/prism.min.js"></script>

@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/prism.css">
+  <meta name="description" content="">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+  <meta property="og:image:alt" content="">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.png">
+
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+  <h1>SELECTORES</h1>
+  <a href="index.html">RETURN</a>
+
+  <h2>Selectores</h2>
+   <pre><code class="language-html">
+    //Creando documento con clases e IDs
+    &lt;!DOCTYPE html>
+  &lt;html lang="en">
+  &lt;head>
+    &lt;meta charset="UTF-8">
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0">
+    &lt;title>Primeras pruebas con selectores&lt;/title>
+  &lt;/head>
+  &lt;body>
+    &lt;h1>Primeras pruebas con selectores&lt;/h1>
+    &lt;p id="p1">Párrafo con id establecido&lt;/p>
+    &lt;p class="importante">Párrafo con clase importante&lt;/p>
+    &lt;p name="nombreimportante">Párrafo con clase importante&lt;/p>
+    &lt;div class="importante" id="divimportante">
+      &lt;p name="nombreimportante">Lorem ipsum dolor sit amet consectetur
+      adipisicing elit. Mollitia doloremque voluptas aliquam aut possimus
+      ipsa eveniet soluta sunt incidunt! Distinctio nesciunt quo blanditiis
+      ducimus et voluptates cumque consequatur libero perspiciatis.&lt;/p>
+    &lt;/div>
+    &lt;script src="selectores.js">&lt;/script>
+  &lt;/body>
+  &lt;/html>
+
+  </code></pre>
+ 
+
+  
+  <pre><code class="language-javascript">
+  // Seleccionar por ID
+  // Devuelve un HTMLElement o null
+  let pConId = document.getElementById('p1');
+
+  // Seleccionar por Clase
+  // Devuelve siempre un HTMLCollection
+  let pConClass = document.getElementsByClassName('importante');
+
+  // Seleccionar por TIPO
+  // Devuelve siempre un HTMLCollection
+  let parrafos = document.getElementsByTagName('p');
+
+  // Seleccionar por NAME
+  // Devuelve siempre un NodeList
+  let withName = document.getElementsByName('nombreimportante');
+
+  // Devuelve el primer elemento que cumpla la condición
+  let parrafo = document.querySelector('p');
+
+  // Devuelve NodeList
+  let parrafos2 = document.querySelectorAll('p');
+
+  </code></pre>
+
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/prism.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-scss.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-javascript.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-html.min.js"></script>
+
+
+
+</body>
+
+</html>

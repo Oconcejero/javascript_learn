@@ -32,6 +32,7 @@ body {
         text-align: center;
         margin-top: 10px;
         border-radius: 15px;
+        
     }
     a:hover {
         display: block;
@@ -43,14 +44,45 @@ body {
         width: 200px;
         background-color: variables.$segundo-color;
         text-align: center;
+        box-shadow: 1px 1px 15px rgb(240, 112, 112);
+    }
+    .container2 {
+            a {
+        display: block;
+        text-decoration: none;
+        color: rgb(255, 255, 255);
+        font-family: variables.$font-primary;
+        font-size: 25px;
+        padding: 15px 25px;
+        width: 200px;
+        background-color: variables.$segundo-color;
+        text-align: center;
+        margin-top: 10px;
+        border-radius: 15px;
+        
+    }
+    a:hover {
+        display: block;
+        text-decoration: none;
+        color: black;
+        font-family: variables.$font-primary;
+        font-size: 25px;
+        padding: 15px 25px;
+        width: 200px;
+        background-color: variables.$tercer-color;
+        text-align: center;
+        box-shadow: 1px 1px 15px rgb(243, 108, 191);
+    }
+
     }
     h2 {
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         font-family: variables.$font-primary;
         color: variables.$segundo-color;
         font-size: 35px;
         margin-top: 5%;
+        margin-left: 10%;
     }
     h3 {
         font-family: variables.$font-primary;

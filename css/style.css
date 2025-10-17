@@ -50,14 +50,41 @@ body a:hover {
   width: 200px;
   background-color: #E610F1;
   text-align: center;
+  box-shadow: 1px 1px 15px rgb(240, 112, 112);
+}
+body .container2 a {
+  display: block;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  font-family: "Roboto", sans-serif;
+  font-size: 25px;
+  padding: 15px 25px;
+  width: 200px;
+  background-color: #E610F1;
+  text-align: center;
+  margin-top: 10px;
+  border-radius: 15px;
+}
+body .container2 a:hover {
+  display: block;
+  text-decoration: none;
+  color: black;
+  font-family: "Roboto", sans-serif;
+  font-size: 25px;
+  padding: 15px 25px;
+  width: 200px;
+  background-color: #F11050;
+  text-align: center;
+  box-shadow: 1px 1px 15px rgb(243, 108, 191);
 }
 body h2 {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   font-family: "Roboto", sans-serif;
   color: #E610F1;
   font-size: 35px;
   margin-top: 5%;
+  margin-left: 10%;
 }
 body h3 {
   font-family: "Roboto", sans-serif;
