@@ -24,53 +24,54 @@
 </head>
 
 <body>
-  <h1>OBJETO MATH</h1>
+  <h1>CONSOLA</h1>
     <a class="return" href="javascript.html">RETURN</a>
-<h2>sqrt( )</h2>
+<h2>assert( )</h2>
 <pre><code class="language-javascript">
-  //Devuelve la raíz cuadrada positiva de un número
+  //Aparece un mensaje de error en la consola si la afirmación es falsa. Si la afirmación es verdadera no aparece nada.
   
   let numero = Math.sqrt(25)
-  console.log(numero) //5, La raíz cuadrada de 25
+  console.assert(5 > 3) //No aparece nada
+  console.assert(3 > 5) //Mensaje de error: Assertion failed!
    
 </code></pre>
 
-<h2>cbrt( )</h2>
+<h2>clear( )</h2>
 <pre><code class="language-javascript">
-  //Devuelve la raíz cúbica de un número
+  //Limpia la consola
 
-  let numero = Math.cbrt(25)
-  console.log(numero) //2.924017738212866, La raíz cúbica de 25
+  console.clear() // Limpia toda la consola
 </code></pre>
 
-<h2>max( ) & min( )</h2>
+<h2>error( )</h2>
 <pre><code class="language-javascript">
-  //Devuelven el mayor de cero o más números y
-  //el más pequeño de cero o más números
+  //Muestra un mensaje de error
 
-  let numero = Math.max(4,5,7,8,6,25,35,124,584,21,5)
-  console.log(numero) //584, Devuelve el más grande
-
-  let numero = Math.min(4,5,7,8,6,25,35,124,584,21,5)
-  console.log(numero) //4, Devuelve el más pequeño
+  console.error("Qué pasó?! Error!!")
 </code></pre>
 
-<h2>random( )</h2>
+<h2>table( )</h2>
 <pre><code class="language-javascript">
-  //Devuelve un número aleatorio entre 0 y 1
-
-  let numero = Math.random()
-  console.log(numero) //0.16092775158390604
+  //Dando como parámetro un array te crea una tabla
+  
+  console.table([4,6,5,3,8,5])
+  ┌─────────┬────────┐
+  │ (index) │ Values │
+  ├─────────┼────────┤
+  │ 0       │ 4      │
+  │ 1       │ 6      │
+  │ 2       │ 5      │
+  │ 3       │ 3      │
+  │ 4       │ 8      │
+  │ 5       │ 5      │
+  └─────────┴────────┘
  
 </code></pre>
 
-<h2>round( )</h2>
+<h2>dir( )</h2>
 <pre><code class="language-javascript">
-  //Devuelve el valor de un número redondeado al número entero más cercano
-
-  let numero = Math.random()*100;
-  numero = Math.round(numero);
-  console.log(numero) //74
+  //Despliega una lista interactiva de las propiedades del objeto Javascript
+  console.dir([2,5,6,3,4])
 </code></pre>
 
 <h2>fround( )</h2>

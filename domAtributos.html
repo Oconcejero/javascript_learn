@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/prism.css">
+  <meta name="description" content="">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+  <meta property="og:image:alt" content="">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.png">
+
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+  <h1>DOM</h1>
+    <a class="return" href="dom.html">RETURN</a>
+  
+   <h2>Métodos para Definir, Obtener y Eliminar valores de atributos</h2>
+   <h4>setAttribute( )</h4>
+    <h5>Modifica el valor de un atributo</h5>
+      <h4>getAttribute( )</h4>
+    <h5>Obtiene el valor de un atributo</h5>
+      <h4>removeAttribute( )</h4>
+    <h5>Remueve el valor de un atributo</h5>
+      
+  <pre><code class="language-html">
+    //Documento con clases e IDs para usar selectores
+    &lt;!DOCTYPE html>
+  &lt;html lang="es">
+  &lt;head>
+    &lt;meta charset="UTF-8">
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0">
+    &lt;title>Primeras pruebas con selectores&lt;/title>
+  &lt;/head>
+  &lt;body>
+    &lt;input type="range" class="rangoEdad">
+    &lt;label>Rango de Edad&lt;/label>
+    &lt;script src="codigo.js">&lt;/script>
+  &lt;/body>
+  &lt;/html>
+
+  </code></pre>
+
+  <h2>Modificar el atributo</h2>
+   <pre><code class="language-javascript">
+    const rangoEdad = document.querySelector(".randoEdad");
+    rangoEdad.setAttribute("type","text")
+    // Primer valor el que está, segundo valor al que se quiere modificar
+  </code></pre>
+
+  <h2>Obtener atributo</h2>
+   <pre><code class="language-javascript">
+    const valorDelAtributo = rangoEdad.getAttribute("type");
+    console.log(valorDelAtributo); //range
+    // Indica el valor del atributo específico
+  </code></pre>
+
+  <h2>Obtener atributo</h2>
+   <pre><code class="language-javascript">
+    rangoEdad.removeAttribute("type");
+    // Elimina el atributo. ELIMINADO, no vacío
+  </code></pre>
+
+  <h2>Atributos globales</h2>
+      <div class="propieties">
+        <div class="box">
+          <h4>class</h4>
+          <h5>Lista de clases del elemento separadas por espacios</h5>
+        </div>
+        <div class="box">
+          <h4>contenteditable</h4>
+          <h5>Indica si el elemento puede ser modificable por el usuario (bool)</h5>
+        </div>
+        <div class="box">
+          <h4>dir</h4>
+          <h5>Indica la direccionabilidad del texto</h5>
+        </div>
+        <div class="box">
+          <h4>hidden</h4>
+          <h5>Indica si el elemento aún no es, o ya no es, relevante</h5>
+        </div>
+        <div class="box">
+          <h4>id</h4>
+          <h5>Define un identificador único</h5>
+        </div>
+        <div class="box">
+          <h4>style</h4>
+          <h5>Contiene declaraciones de estilo CSS para ser aplicadas al elemento</h5>
+        </div>
+        <div class="box">
+          <h4>tabindex</h4>
+          <h5>Indica si el elemento puede obtener un focus de input</h5>
+        </div>
+        <div class="box">
+          <h4>tittle</h4>
+          <h5>Contiene un texto con información relacionada al elemento al que pertenece</h5>
+        </div>
+    </div>
+
+    <pre><code class="language-html">
+    //Documento con clases e IDs para usar selectores
+    &lt;!DOCTYPE html>
+  &lt;html lang="es">
+  &lt;head>
+    &lt;meta charset="UTF-8">
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0">
+    &lt;title>Primeras pruebas con selectores&lt;/title>
+  &lt;/head>
+  &lt;body>
+    &lt;h1 class="titulo">Este es un TÍTULO&lt;/h1>
+    &lt;script src="codigo.js">&lt;/script>
+  &lt;/body>
+  &lt;/html>
+
+  </code></pre>
+
+  <h2>USO</h2>
+   <pre><code class="language-javascript">
+    const titulo = document.querySelector(".titulo");
+    console.log(div.class)
+    console.log(div.id)
+
+    titulo.setAttribute("contentEditable","true")// Hace el elemento editable
+    // Son valores BULEANOS
+
+    titulo.setAttribute("hidden","false/true")//El elemento se define como hidden y se oculta
+    
+
+  </code></pre>
+
+    <h2>Atributos de Inputs</h2>
+    <p>Se acceden directamente desde Javascript</p>
+      <div class="propieties">
+      <div class="box">
+        <h4>className</h4>
+        <h5>Muestra la clase</h5>
+      </div>
+      <div class="box">
+        <h4>value</h4>
+        <h5>Muestra el valor</h5>
+      </div>
+      <div class="box">
+        <h4>type</h4>
+        <h5>Muestra el tipo</h5>
+      </div>
+      <div class="box">
+        <h4>accept</h4>
+        <h5>Indica que archivo es aceptado</h5>
+      </div>
+      <div class="box">
+        <h4>form</h4>
+        <h5>Permite crear un botón fuera del formulario</h5>
+      </div>
+      <div class="box">
+        <h4>minlength</h4>
+        <h5>Indica el número mínimo de caracteres en un input</h5>
+      </div>
+      <div class="box">
+        <h4>placeholder</h4>
+        <h5>Muestra un mensaje en el input</h5>
+      </div>
+      <div class="box">
+        <h4>required</h4>
+        <h5>Indica si el campo es requerido o no</h5>
+      </div>
+    </div>
+
+    <pre><code class="language-html">
+    //Documento con clases e IDs para usar selectores
+    &lt;!DOCTYPE html>
+  &lt;html lang="es">
+  &lt;head>
+    &lt;meta charset="UTF-8">
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0">
+    &lt;title>Primeras pruebas con selectores&lt;/title>
+  &lt;/head>
+  &lt;body>
+    &lt;input type="text" class="input-normal">
+    &lt;script src="codigo.js">&lt;/script>
+  &lt;/body>
+  &lt;/html>
+
+  </code></pre>
+
+  <h2>USO</h2>
+   <pre><code class="language-javascript">
+    const input = document.querySelector(".input-normal");
+
+    console.log(input.className)//Muestra la clase - input-normal
+    
+    console.log(input.value)//Muestra lo que hay dentro del input
+    
+    console.log(input.type)//Se puede modificar desde dentro (console.log(input.type="range"))
+    
+    input.accept//En los input tipo FILE indica que archivo va a aceptar (input.accept="image/png")
+    
+    input.form //Ejecuta un input fuera del form enlazándolo con id
+    
+    input.minLength //Indica el número mínimo de caracteres de un input
+    
+    input.placeholder = "Escribe tu nombre" //Muestra un mensaje en el input
+    
+    input.required = "required"; //Indica si es un campo requerido o no
+  </code></pre>
+
+  <h2>Atributo style</h2>
+    <p>Nos permite modificar algo de CSS del atributo</p>
+      <div class="propieties">
+      <div class="box">
+        <h4>className</h4>
+        <h5>Muestra la clase</h5>
+      </div>
+      <div class="box">
+        <h4>value</h4>
+        <h5>Muestra el valor</h5>
+      </div>
+      <div class="box">
+        <h4>type</h4>
+        <h5>Muestra el tipo</h5>
+      </div>
+      <div class="box">
+        <h4>accept</h4>
+        <h5>Indica que archivo es aceptado</h5>
+      </div>
+      <div class="box">
+        <h4>form</h4>
+        <h5>Permite crear un botón fuera del formulario</h5>
+      </div>
+      <div class="box">
+        <h4>minlength</h4>
+        <h5>Indica el número mínimo de caracteres en un input</h5>
+      </div>
+      <div class="box">
+        <h4>placeholder</h4>
+        <h5>Muestra un mensaje en el input</h5>
+      </div>
+      <div class="box">
+        <h4>required</h4>
+        <h5>Indica si el campo es requerido o no</h5>
+      </div>
+    </div>
+
+    <pre><code class="language-html">
+    //Documento con clases e IDs para usar selectores
+    &lt;!DOCTYPE html>
+  &lt;html lang="es">
+  &lt;head>
+    &lt;meta charset="UTF-8">
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0">
+    &lt;title>Primeras pruebas con selectores&lt;/title>
+  &lt;/head>
+  &lt;body>
+    &lt;h1 class="titulo">Elemento a modificar&lt;/h1>
+    &lt;script src="codigo.js">&lt;/script>
+  &lt;/body>
+  &lt;/html>
+
+  </code></pre>
+
+  <h2>USO</h2>
+   <pre><code class="language-javascript">
+    const titulo = document.querySelector(".titulo");
+
+    titulo.style.color = "red" //Modificar el color
+    titulo.style.backgroundColor = "red" //Modificar el fondo
+    titulo.style.padding = "30px" //Modificar el padding
+  </code></pre> 
+
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/prism.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-scss.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-javascript.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-html.min.js"></script>
+
+</body>
+<footer class="footer">
+  <a class="botonFooter" href="index.html">INICIO</a>
+  <a class="botonFooter" href="dom.html">RETURN</a>
+  <a class="botonFooter" href="javascript.html">JAVASCRIPT</a>
+</footer>
+
+</html>

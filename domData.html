@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/prism.css">
+  <meta name="description" content="">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+  <meta property="og:image:alt" content="">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.png">
+
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+  <h1>DOM</h1>
+    <a class="return" href="dom.html">RETURN</a>
+   
+  <h2>Data-attr</h2>
+    <p>Almacena información en una etiqueta que no sea visible</p>
+      <h4>.classList</h4>
+    <h5>Devuelve la lista de clases del elemento HTML</h5>
+      <h4>.classList.length</h4>
+    <h5>Devuelve el número de clases del elemento HTML</h5>
+      <h4>.classList.item(n)</h4>
+    <h5>Devuelve la clase número "n" del elemento HTML</h5>
+    <h5>NULL si no existe</h5>
+      <h4>.classList.contains(clase)</h4>
+    <h5>Indica si la clase existe en el elemento HTML (true/false)</h5>
+    
+    <pre><code class="language-html">
+    //Documento con clases e IDs para usar selectores
+    &lt;!DOCTYPE html>
+  &lt;html lang="es">
+  &lt;head>
+    &lt;meta charset="UTF-8">
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0">
+    &lt;title>Primeras pruebas con selectores&lt;/title>
+  &lt;/head>
+  &lt;body>
+    &lt;article class="producto" data-id="1" data-price="23.5">
+    &lt;h3>Rueda de tacos&lt;/h3>
+    &lt;p>loren ipsum dolor sit amet, consectetur&lt;/p>
+    &lt;/article>
+
+    &lt;article class="producto" data-id="2" data-price="50.0">
+    &lt;h3>Rueda de tacos&lt;/h3>
+    &lt;p>loren ipsum dolor sit amet, consectetur&lt;/p>
+    &lt;/article>
+
+    &lt;script src="codigo.js">&lt;/script>
+  &lt;/body>
+  &lt;/html>
+
+  </code></pre>
+
+  <h2>USO</h2>
+   <pre><code class="language-javascript">
+let primerDiv = document.querySelector("div");
+
+let primerProducto = document.querySelector(".producto");
+
+//Primera propiedad
+console.log(primerProducto.getAttribute("data-price"));
+//23.5
+
+//Segunda propiedad
+primerProducto.dataset
+//DOMStringMap {id:'1', price:'23.5'}
+
+primerProducto.dataset.price //23.5
+
+//Cambiar el id
+primerProducto.dataset.id = '5' //class="producto" data-id="5" data-price="23.5">
+
+//Añadir otro atributo
+primerProducto.database.tax = 'true' //class="producto" data-id="5" data-price="23.5" data-tax='true'>
+  
+//Eliminar el atributo
+primerProducto.removeAttribute('data-tax') //class="producto" data-id="5" data-price="23.5">
+  </code></pre>
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/prism.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-scss.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-javascript.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-html.min.js"></script>
+
+</body>
+<footer class="footer">
+  <a class="botonFooter" href="index.html">INICIO</a>
+  <a class="botonFooter" href="dom.html">RETURN</a>
+  <a class="botonFooter" href="javascript.html">JAVASCRIPT</a>
+</footer>
+
+</html>

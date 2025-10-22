@@ -12,6 +12,7 @@ body {
   background-color: rgb(0, 0, 0);
   margin-top: 5%;
   margin-left: 5%;
+  margin-right: 5%;
   max-width: 100%;
 }
 body .contenedor_botones {
@@ -27,6 +28,34 @@ body h1 {
   margin-bottom: 50px;
   font-family: "Roboto", sans-serif;
 }
+body .return {
+  display: block;
+  margin-left: 45%;
+  text-decoration: none;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-size: 25px;
+  padding: 15px 25px;
+  width: 200px;
+  background-color: #10AEF1;
+  text-align: center;
+  margin-top: 10px;
+  border-radius: 5px;
+  margin-bottom: 5%;
+}
+body .return:hover {
+  display: block;
+  text-decoration: none;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-size: 25px;
+  padding: 15px 25px;
+  width: 200px;
+  background-color: #F11050;
+  text-align: center;
+  margin-top: 10px;
+  border-radius: 5px;
+}
 body a {
   display: block;
   text-decoration: none;
@@ -38,7 +67,7 @@ body a {
   background-color: #8810F1;
   text-align: center;
   margin-top: 10px;
-  border-radius: 15px;
+  border-radius: 5px;
 }
 body a:hover {
   display: block;
@@ -63,9 +92,34 @@ body .container2 a {
   background-color: #E610F1;
   text-align: center;
   margin-top: 10px;
-  border-radius: 15px;
+  border-radius: 5px;
 }
 body .container2 a:hover {
+  display: block;
+  text-decoration: none;
+  color: black;
+  font-family: "Roboto", sans-serif;
+  font-size: 25px;
+  padding: 15px 25px;
+  width: 200px;
+  background-color: #F11050;
+  text-align: center;
+  box-shadow: 1px 1px 15px rgb(243, 108, 191);
+}
+body .container3 a {
+  display: block;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  font-family: "Roboto", sans-serif;
+  font-size: 25px;
+  padding: 15px 25px;
+  width: 200px;
+  background-color: #10AEF1;
+  text-align: center;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+body .container3 a:hover {
   display: block;
   text-decoration: none;
   color: black;
@@ -81,9 +135,9 @@ body h2 {
   display: flex;
   justify-content: flex-start;
   font-family: "Roboto", sans-serif;
-  color: #E610F1;
+  color: #10AEF1;
   font-size: 35px;
-  margin-top: 5%;
+  margin-top: 35px;
   margin-left: 10%;
 }
 body h3 {
@@ -94,7 +148,65 @@ body p {
   font-family: "Roboto", sans-serif;
   font-size: 25px;
   color: white;
+  text-align: start;
+}
+body h4 {
+  font-family: "Roboto", sans-serif;
+  color: rgb(165, 11, 96);
+  font-size: 25px;
+  margin-top: 15px;
+}
+body h5 {
+  font-family: "Roboto", sans-serif;
+  color: rgb(189, 189, 189);
+  font-size: 19px;
+  margin-top: 10px;
+}
+body .propieties {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 15px;
+}
+body .propieties .box {
+  max-width: 250px;
+  padding: 15px;
+  background-color: rgb(37, 37, 37);
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  background-color: rgb(18, 19, 19);
+  padding-top: 35px;
+  padding-bottom: 35px;
+  margin-top: 35px;
+  gap: 95px;
+}
+.footer .botonFooter {
+  display: block;
+  text-decoration: none;
+  color: rgb(150, 150, 150);
+  font-family: "Roboto", sans-serif;
+  font-size: 25px;
+  padding: 15px 25px;
+  width: 200px;
+  background-color: rgb(58, 58, 58);
   text-align: center;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+.footer .botonFooter:hover {
+  display: block;
+  text-decoration: none;
+  color: black;
+  font-family: "Roboto", sans-serif;
+  font-size: 25px;
+  padding: 15px 25px;
+  width: 200px;
+  background-color: #99BDC2;
+  text-align: center;
+  box-shadow: 1px 1px 15px rgb(30, 121, 206);
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/prism.css">
+  <meta name="description" content="">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+  <meta property="og:image:alt" content="">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.png">
+
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+  <h1>TIPOS DE EVENTOS</h1>
+    <a class="return" href="eventos.html">RETURN</a>
+    
+  <h2>Eventos de formulario</h2>
+  <h3>Propiedades y métodos</h3>
+  <div class="propieties">  
+    <div class="box">
+          <h4>action</h4>
+          <h5>Contiene la URL que recibirá los datos del formulario</h5>
+        </div>
+        <div class="box">
+          <h4>elements</h4>
+          <h5>Contiene todos los controles del formulario</h5>
+        </div>
+        <div class="box">
+          <h4>length</h4>
+          <h5>Números de controles del formulario</h5>
+        </div>
+        <div class="box">
+          <h4>method</h4>
+          <h5>{GET/POST}En función del método elegido para enviarlo</h5>
+        </div>
+        <div class="box">
+          <h4>enctype</h4>
+          <h5>Tipo de codificación de los datos del formulario</h5>
+        </div>
+        <div class="box">
+          <h4>acceptCharset</h4>
+          <h5>Conjunto de caracteres del formulario</h5>
+        </div>
+        <div class="box">
+          <h4>submit( )</h4>
+          <h5>Envía los datos del formulario a la URL de action usando method</h5>
+        </div>
+        <div class="box">
+          <h4>reset( )</h4>
+          <h5>Devuelve el formulario a su estado inicial</h5>
+        </div>
+        <div class="box">
+          <h4>onX</h4>
+          <h5>Todos los eventos asociados al formulario, siendo X el nombre del evento:
+            onAbort, onBlur, onCancel, onClick...
+          </h5>
+      </div>
+    </div>
+      
+    <pre><code class="language-html">
+      //HTML
+     &lt;form action="http://google.com" method="get">
+        &lt;input type="text" name="email">
+        &lt;p>
+          &lt;a href="http://google.com" id="buttonSubmit">Enviar&lt;/a>
+          &lt;a href="#" id="buttonReset">Resetear&lt;/a>
+        &lt;/p>
+
+      &lt;/form>
+
+  &lt;script src="validacion-correo.js"></script>
+  </code></pre>
+
+    <pre><code class="language-javascript">
+      //JAVASCRIPT
+      console.log("Empieza el ejercicio");
+
+      let buttonSubmit = document.getElementById("buttonSubmit"); //Selecciona botón 1
+      let buttonReset = document.getElementById("buttonReset"); //Selecciona botón 2
+      let primerForm = document.forms[0]; //Selecciona el primer formulario del documento
+
+      //Capturar el evento del botón 1
+      buttonSubmit.addEventListener("click", (event) => {
+        event.preventDefault(); //Para el comportamiento por defecto del evento botón
+        console.log("Botón de envío pulsado");
+        debugger;
+        // comprobamos que el email tiene una @
+        if (primerForm.elements[0].value.includes("@")) {
+          primerForm.submit(); //Si se cumple la condición se envía el formulario
+        } else {
+          alert("Debe añadir una @ en el campo de texto");
+        }
+      });
+
+      //Capturar el evento del botón 2
+      buttonReset.addEventListener("click", (event) => {
+        event.preventDefault(); //Para el comportamiento por defecto del evento botón
+        console.log("Botón de reset pulsado");
+        primerForm.reset(); //Resetea el formulario por defecto
+      });
+
+    </code></pre>
+
+      <h2>Propiedades de elementos de un formulario</h2>
+      <p>Cada elemento del "array" del formulario puede tener propiedades</p>
+ 
+      <h3>Propiedades</h3>
+      <div class="propieties">
+        <div class="box">
+          <h4>accept</h4>
+          <h5>Tipos de archivos que se permiten en un control de tipo file</h5>
+        </div>
+        <div class="box">
+          <h4>autocomplete</h4>
+          <h5>Si el valor del control puede ser autocompletado por el navegador</h5>
+        </div>
+        <div class="box">
+          <h4>name</h4>
+          <h5>Nombre del control</h5>
+        </div>
+        <div class="box">
+          <h4>type</h4>
+          <h5>De qué tipo es</h5>
+        </div>
+        <div class="box">
+          <h4>value</h4>
+          <h5>Valor actual del control</h5>
+        </div>
+        <div class="box">
+          <h4>checked</h4>
+          <h5>true si el control está activado, false si no lo está</h5>
+        </div>
+        <div class="box">
+          <h4>defaultChecked</h4>
+          <h5>Valor predeterminado de la propiedad checked</h5>
+        </div>
+        <div class="box">
+          <h4>disable</h4>
+          <h5>true si el control está deshabilitado, false si está habilitado</h5>
+        </div>
+        <div class="box">
+          <h4>hidden</h4>
+          <h5>El control es invisible para el usuario, pero no para el programador</h5>
+        </div>
+        <div class="box">
+          <h4>readonly</h4>
+          <h5>true si el control es de solo lectura (no modificable), false si no lo es</h5>
+        </div>
+        <div class="box">
+          <h4>required</h4>
+          <h5>true si proporcionarle un valor al control es obligatorio, false si no lo es</h5>
+        </div>
+        <div class="box">
+          <h4>maxLength</h4>
+          <h5>Anchura máxima del texto</h5>
+        </div>
+        <div class="box">
+          <h4>min</h4>
+          <h5>Valor mínimo para el control</h5>
+        </div>
+        <div class="box">
+          <h4>max</h4>
+          <h5>Valor máximo para el control</h5>
+        </div>
+        <div class="box">
+          <h4>pattern</h4>
+          <h5>Una expresión regular contra la que el valor del control es evaluado</h5>
+        </div>
+        <div class="box">
+          <h4>placeholder</h4>
+          <h5>Una pista para el usuario sobre lo que debe introducir en el control</h5>
+        </div>
+        <div class="box">
+          <h4>size</h4>
+          <h5>Tamaño inicial del control</h5>
+        </div>
+        <div class="box">
+          <h4>step</h4>
+          <h5>Tamaño del cambio en el valor de un control</h5>
+        </div>
+        <div class="box">
+          <h4>selectionStart</h4>
+          <h5>En una selección de texto la posición del primer carácter seleccionado</h5>
+        </div>
+        <div class="box">
+          <h4>selectionEnd</h4>
+          <h5>En una selección de texto, la posición del último carácter seleccionado</h5>
+        </div>
+      </div>
+    <pre><code class="language-html">
+          //HTML
+      &lt;form action="http://google.com" method="get">
+        &lt;p class="error">&lt;/p> //Creamos un error vacío
+        &lt;p>
+          &lt;label for="age">Introduzca su edad entre 18 y 30 años&lt;/label>
+          &lt;input type="number" id="age" name="age">
+        &lt;/p>
+
+        &lt;button>Enviar&lt;/button>
+
+      &lt;/form>
+  
+    </code></pre>
+
+    <pre><code class="language-javascript">
+            //JAVSCRIPT
+      let primerForm = document.forms[0]; //Seleccionamos el primer form
+      let ageElement = document.getElementById('age');
+      let errorElement = primerForm.querySelector('.error');
+
+      primerForm.addEventListener('submit', (e)=>{
+        e.preventDefault(); //Para el comportamiento por defecto del evento botón
+        console.log('Enviando formulario');
+        let edad = document.getElementById('age').value; //Obtenemos el valor de la edad
+        if (edad >= 18 && edad <= 30){
+          errorElement.textContent = ''; //Reseteamos el erro para que no tenga texto antes de que se envíe
+          primerForm.submit();
+        }else {
+          errorElement.textContent = 'Debe introducir una edad entre 18 y 30 años';//Seleccionamos el error y añadimos texto
+          errorElement.style.color= 'red'; //Le damos estilo para que se vea rojo
+        }
+      });
+
+      //Evento "change"
+      ageElement.addEventListener('change', () => {
+          console.log('El elemento se ha cambiado');
+      });
+
+      //Evento "focus"
+      ageElement.addEventListener('focus', () => {
+        console.log('El elemento tiene el foco');
+      });
+
+      //Evento "blur"
+      ageElement.addEventListener('blur', () => {
+        console.log('El elemento pierde el foco');
+      });
+
+  </code></pre>
+
+  <h2>Eventos de ratón</h2>
+  <h3>Propiedades y métodos</h3>
+    <div class="propieties">
+      <div class="box">   
+        <h4>click</h4>
+        <h5>Hacer clic sobre el botón principal del dispositivo</h5>
+      </div> 
+      <div class="box">
+        <h4>dblclick</h4>
+        <h5>Hacer doble clic sobre el botón principal del dispositivo</h5>
+      </div> 
+      <div class="box">
+        <h4>mousedown</h4>
+        <h5>Cuando se pulsa y justo antes de soltarlo, se lanza el evento</h5>
+      </div> 
+      <div class="box">
+        <h4>mouseup</h4>
+        <h5>El evento se lanza cuando se suelta el botón</h5>
+      </div> 
+      <div class="box">
+        <h4>mousenter</h4>
+        <h5>El evento se lanza cuando el puntero se sitúa sobre el elemento que captura el evento</h5>
+      </div> 
+      <div class="box">
+        <h4>mouseleave</h4>
+        <h5>El evento se lanza cuando el puntero deja de situarse sobre el elemento que captura el evento</h5>
+      </div> 
+      <div class="box">
+        <h4>mousemove</h4>
+        <h5>Mientras se está dentro del elemento, el evento se lanza cada vez que se mueve el puntero</h5>
+      </div> 
+      <div class="box">
+        <h4>mouseover</h4>
+        <h5>El evento se lanza cuando el puntero se sitúa sobre el elemento que lo captura o sobre cualquiera de sus hijos</h5>
+      </div> 
+      <div class="box">
+        <h4>mouseout</h4>
+        <h5>El evento se lanza cuando el puntero deja de situarse sobre el elemento que lo captura o sobre cualquiera de sus hijos</h5>
+      </div> 
+      <div class="box">
+        <h4>contextmenu</h>
+        <h5>El evento se lanza cuando se solicita un menú contextual (Botón derecho)</h5>
+      </div> 
+    </div>
+
+  <h2>Eventos de teclado</h2>
+  <h3>Propiedades y métodos</h3>
+      <h4>keypress</h4>
+    <h5>El evento se lanza tras pulsar y soltar una tecla</h5>
+      <h4>keydown</h4>
+    <h5>El evento se lanza tras pulsar y antes de soltar una tecla</h5>
+      <h4>keyup</h4>
+    <h5>El evento se lanza tras soltar una tecla</h5>
+
+  <h2>Eventos de reproducción multimedia</h2>
+  <p>Solo para elemento nativos de HTML</p>
+  <h3>Propiedades y métodos</h3>
+  <div class="propieties">
+    <div class="box">
+      <h4>canplay</h4>
+      <h5>Cuando se detecta que el contenido se puede comenzar a reproducir</h5>
+    </div>
+    <div class="box">
+      <h4>canplaythrough</h4>
+      <h5>Cuando se estima que el contenido tiene cargados datos suficientes como para poder reproducirse</h5>
+    </div>
+    <div class="box">
+      <h4>durationchange</h4>
+      <h5>Cuando se modifica el atributo duration del medio</h5>
+    </div>
+    <div class="box">
+      <h4>emptied</h4>
+      <h5>Cuando se vacía de datos el medio</h5>
+    </div>
+    <div class="box">
+      <h4>ended</h4>
+      <h5>Cuando se detiene la reproducción, sin intervención del usuario</h5>
+    </div>
+    <div class="box">
+      <h4>loadeddata</h4>
+      <h5>Cuando se ha cargado la primera imagen de un vídeo</h5>
+    </div>
+    <div class="box">
+      <h4>loadedmetadata</h4>
+      <h5>Cuando se han cargado los metadatos del medio</h5>
+    </div>  
+    <div class="box">  
+      <h4>pause</h4>
+      <h5>Cuando se pausa el medio de reproducción</h5>
+    </div>
+    <div class="box"> 
+      <h4>play</h4>
+      <h5>Cuando se reanuda la reproducción tras una pausa</h5>
+    </div>
+    <div class="box"> 
+      <h4>playing</h4>
+      <h5>Cuando el medio está listo para reproducirse tras una parada</h5>
+    </div> 
+    <div class="box">  
+      <h4>ratechange</h4>
+      <h5>Cuando se modifica el rate del vídeo en reproducción</h5>
+    </div>
+    <div class="box">  
+      <h4>seeked</h4>
+      <h5>Cuando finaliza la búsqueda en el medio</h5>
+    </div>
+    <div class="box">
+      <h4>seeking</h4>
+      <h5>Cuando se inicia la búsqueda en el medio</h5>
+    </div>
+    <div class="box">  
+      <h4>stalled</h4>
+      <h5>Cuando se produce un fallo en la carga, pero la carga continúa</h5>
+    </div>  
+    <div class="box">
+      <h4>suspend</h4>
+      <h5>Cuando se suspende la carga del medio</h5>
+    </div>  
+    <div class="box">
+      <h4>timeupdate</h4>
+      <h5>Cuando se modifica el valor de "currentTime" del medio</h5>
+    </div>  
+    <div class="box">
+      <h4>columechange</h4>
+      <h5>Cuando se modifica el volumen</h5>
+      </div>
+    <div class="box">  
+      <h4>waiting</h4>
+      <h5>Cuando la reproducción se detiene por falta de datos</h5>
+    </div>
+  </div>
+
+  <h2>Otros eventos importantes</h2>
+  <h3>Propiedades y métodos</h3>
+  <div class="propieties">
+    <div class="box">
+      <h4>abort</h4>
+      <h5>Cuando se cancela la carga de un elemento</h5>
+    </div>
+    <div class="box">
+      <h4>DOMContentLoaded</h4>
+      <h5>Cuando se ha cargado el documento HTML</h5>
+    </div>
+    <div class="box">
+      <h4>error</h4>
+      <h5>Cuando se produce un error en la carga</h5>
+    </div>
+    <div class="box">
+      <h4>load</h4>
+      <h5>Cuando se ha cargado el documento y los elementos externos que incorpora: imágenes, hojas de estilo...</h5>
+    </div>
+    <div class="box">
+      <h4>progress</h4>
+      <h5>Cuando se está produciendo la carga</h5>
+    </div>
+    <div class="box">
+      <h4>readystatechange</h4>
+      <h5>Cuando se modifica el valor del atributo "readystate"</h5>
+    </div>
+  </div>
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/prism.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-scss.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-javascript.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-html.min.js"></script>
+
+</body>
+<footer class="footer">
+  <a class="botonFooter" href="index.html">INICIO</a>
+  <a class="botonFooter" href="eventos.html">RETURN</a>
+  <a class="botonFooter" href="javascript.html">JAVASCRIPT</a>
+</footer>
+
+</html>

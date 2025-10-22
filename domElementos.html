@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/prism.css">
+  <meta name="description" content="">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+  <meta property="og:image:alt" content="">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.png">
+
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+  <h1>DOM</h1>
+    <a class="return" href="dom.html">RETURN</a>
+   
+    <h2>Obtención y modificación de elementos</h2>
+      <h4>textContent</h4>
+    <h5>Devuelve el texto de cualquier nodo</h5>
+      <h4>innerHTML</h4>
+    <h5>Devuelve en contenido HTML de un elemento</h5>
+      <h4>outerHTML</h4>
+    <h5>Devuelve el código HTML completo de un elemento incluyendo etiquetas</h5>
+      
+    <pre><code class="language-html">
+    //Documento con clases e IDs para usar selectores
+    &lt;!DOCTYPE html>
+  &lt;html lang="es">
+  &lt;head>
+    &lt;meta charset="UTF-8">
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0">
+    &lt;title>Primeras pruebas con selectores&lt;/title>
+  &lt;/head>
+  &lt;body>
+    &lt;h1 class="titulo">Elemento a &lt;b style="visibility: hidden;">modificar&lt;/b>&lt;/h1>
+    &lt;script src="codigo.js">&lt;/script>
+  &lt;/body>
+  &lt;/html>
+
+  </code></pre>
+
+  <h2>USO</h2>
+   <pre><code class="language-html">
+    const titulo = document.querySelector(".titulo");
+
+    let resultado = titulo.textContent; //Elemento a modificar
+    let resultado = titulo.innerHTML; //Elemento a &lt;b style="visibility: hidden;">Modificar &lt;/b>
+    let resultado = titulo.outerHTML; //&lt;p class="titulo">Elemento a &lt;b style="visibility: hidden;">Modificar &lt;/b>&lt;/p>
+    
+  </code></pre>
+
+    <h2>Creación de Elementos</h2>
+      <h4>.createElements( )</h4>
+    <h5>Crea un elemento</h5>
+      <h4>.createTextNode( )</h4>
+    <h5>Crea un texto</h5>
+      <h4>.appenChild( )</h4>
+    <h5>Crea un elemento hijo</h5>
+      <h4>.removeChild(node)</h4>
+    <h5>Elimina y devuelve el nodo hijo de "node"</h5>
+      <h4>.replaceChild(new, old)</h4>
+    <h5>Reemplaza el nodo hijo de "old" por "new". Devuelve "old"</h5>
+      <h4>.insertBefore(new, old)</h4>
+    <h5>Inserta el nodo "new" antes de "node" y como hijo del nodo actual</h5>  
+      <h4>.insertBefore(new, NULL)</h4>
+    <h5>Inserta el nodo "new" después del último nodo hijo. Equivalente a ".appendChild()"</h5>
+    <h4>.createDocumentFragment( )</h4>
+    <h5>Devuelve el código HTML completo de un elemento incluyendo etiquetas</h5>
+      
+    <pre><code class="language-html">
+    //Documento con clases e IDs para usar selectores
+    &lt;!DOCTYPE html>
+  &lt;html lang="es">
+  &lt;head>
+    &lt;meta charset="UTF-8">
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0">
+    &lt;title>Primeras pruebas con selectores&lt;/title>
+  &lt;/head>
+  &lt;body>
+    &lt;div class="contenedor">&lt;/div>
+    &lt;script src="codigo.js">&lt;/script>
+  &lt;/body>
+  &lt;/html>
+
+  </code></pre>
+
+  <h2>USO</h2>
+   <pre><code class="language-javascript">
+    const titulo = document.querySelector(".contenedor");
+
+    const item = document.createElement("LI");
+    console.log(item) //&lt;li>&lt;/li>
+
+    const textDelItem = document.createTextNode("Este es un item de la lista");
+
+    item.appendChild(textDelItem)
+    console.log(item) //&lt;li>Este es un item de la lista&lt;/li>
+    
+    //Otra forma
+    const titulo = document.querySelector(".contenedor");
+
+    const item = document.createElement("LI");
+
+    item.innerHTML = "Este es un item de la lista";
+    contenedor.appenChild(item)
+
+    //Para agragar muchos elementos
+    const titulo = document.querySelector(".contenedor");
+
+    const fragmento = document.createDocumentFragment();
+
+    for (i = 0; i < 20; i++){
+      const item = document.createElement("LI");
+      item.innerHTML = "Este es un item de la lista";
+      fragmento.appenChild(item);
+    }
+    //Añadirlo
+    contenedor.appendChild(fragmento)
+
+   
+  </code></pre>
+
+  <h2>API de insertar elementos</h2>
+      <h4>.before( )</h4>
+    <h5>Añade el nuevo elemento justo antes.</h5>
+      <h4>.after( )</h4>
+    <h5>Añade el nuevo elemento justo después.</h5>
+      <h4>.prepend( )</h4>
+    <h5>Se añade el nuevo elemento antes del primer hijo.</h5>
+      <h4>.append( )</h4>
+    <h5>Se añade el nuevo elemento después del último hijo.</h5>
+      <h4>.replaceChildren( )</h4>
+    <h5>Elimina todos los hijos y los sustituye por el nuevo elemento.</h5>
+      <h4>.replaceWith( )</h4>
+    <h5>Se sustituye por el nuevo elemento.</h5>  
+      <h4>.remove( )</h4>
+    <h5>Elimina el propio elemento.</h5>
+    
+    <pre><code class="language-html">
+    //Documento con clases e IDs para usar selectores
+
+  &lt;!DOCTYPE html>
+  &lt;html lang="en">
+  &lt;head>
+    &lt;meta charset="UTF-8">
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0">
+    &lt;title>classList y Dataset&lt;/title>
+    &lt;/style>
+  &lt;/head>
+  &lt;body>
+    &lt;div class="rojo importante principal">
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+      Nihil non porro eveniet architecto officiis commodi perferendis
+      perspiciatis dolorem, dolorum quisquam autem tempore at similique
+      cum quasi corporis eligendi numquam voluptatem!
+    &lt;/div>
+    &lt;section class="productos">
+      &lt;article class="producto" data-id="1" data-price="23.5" data-peso-kg="6.7">&lt;h3>Rueda de tacos&lt;/h3>&lt;p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur repellat, earum modi quia qui, voluptates velit cum harum distinctio vitae odit aliquid quidem esse reiciendis sequi quam iusto porro molestias.&lt;/p>&lt;/article>
+
+      &lt;article class="producto" data-id="2" data-price="50.0" data-peso-kg="7.8">
+        &lt;h3>Sillín anatómico&lt;/h3>
+        &lt;p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        Consequuntur repellat, earum modi quia qui, voluptates
+        velit cum harum distinctio vitae odit aliquid quidem esse
+        reiciendis sequi quam iusto porro molestias.&lt;/p>
+      &lt;/article>
+    &lt;/section>
+
+    &lt;script src="manipulacion-dom.js">&lt;/script>
+  &lt;/body>
+  &lt;/html>
+
+  </code></pre>
+
+  <h2>USO</h2>
+   <pre><code class="language-javascript">
+      let primerProducto = document.querySelector(".producto");
+
+      let newP = document.createElement("p");
+      newP.textContent = "Este párrafo es nuevo";
+
+      let newH2 = document.createElement("h2");
+      newH2.textContent = "Soy un nuevo H2";
+
+      let actualH3 = primerProducto.querySelector("h3");
+
+      console.log(primerProducto.childNodes);
+
+      // primerProducto.replaceChild(newH2, actualH3);
+      // actualH3.before(newH2);
+      // actualH3.replaceWith(newH2);
+      // actualH3.remove();
+
+  </code></pre>
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/prism.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-scss.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-javascript.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-html.min.js"></script>
+
+</body>
+<footer class="footer">
+  <a class="botonFooter" href="index.html">INICIO</a>
+  <a class="botonFooter" href="dom.html">RETURN</a>
+  <a class="botonFooter" href="javascript.html">JAVASCRIPT</a>
+</footer>
+
+</html>

@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/prism.css">
+  <meta name="description" content="">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+  <meta property="og:image:alt" content="">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.png">
+
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+  <h1>DOM</h1>
+    <a class="return" href="dom.html">RETURN</a>
+   
+  <h2>Navegar por el DOM por elementos</h2>
+      <h4>(ARRAY) children</h4>
+    <h5>Devuelve una lista de elementos HTML hijos</h5>
+      <h4>(ELEMENT) parentElement</h4>
+    <h5>Devuelve el padre del elemento o NULL si no tiene</h5>
+      <h4>(ELEMENT) firstElementChild</h4>
+    <h5>Devuelve el primer elemento hijo</h5>
+      <h4>(ELEMENT) lastElementChild</h4>
+    <h5>Devuelve el último elemento hijo</h5>
+      <h4>(ELEMENT) previousElementSibling</h4>
+    <h5>Devuelve el elemento hermano anterior o NULL si no tiene</h5>
+      <h4>(ELEMENT) nextElementSibling</h4>
+    <h5>Devuelve el elemento hermano siguiente o NULL si no tiene</h5>
+
+    <pre><code class="language-html">
+    //Documento con clases e IDs para usar selectores
+    &lt;!DOCTYPE html>
+  &lt;html lang="es">
+  &lt;body>
+    &lt;div id="app">
+      &lt;div class="header">
+        &lt;h1>Titular&lt;/h1>
+      &lt;/div>
+      &lt;p>Párrafo de descripción&lt;/p>
+      &lt;a href="/">Enlace&lt;/a>
+    &lt;/div>
+  &lt;/body>
+  &lt;/html>
+
+  </code></pre>
+
+  <h2>USO</h2>
+   <pre><code class="language-javascript">
+  document.body.children.length; //1 - Solo tiene un hijo
+  document.body.children; //&lt;div id="app"> - Solo un hijo que es "app"
+  document.body.parentElement; //&lthtml> - El padre de "body" que es HTML
+
+  const app = document.querySelector("#app"); //Selecciona "#app"
+
+  app.children; //[div.header, p, a] - Hijos de "#app"
+  app.firstElementChild; //&lt;div class="header">
+  app.lastElementChild; //&lt;a href="/">
+
+  const a = app.querySelector("a");
+
+  a.previousElementSibling; //&lt;p>
+  a.nextElementSibling; //null - No tiene porque tienen que ser hermanos
+  </code></pre>
+
+    <h2>Navegar por el DOM por nodos</h2>
+      <h4>(ARRAY) childNodes</h4>
+    <h5>Devuelve una lista de nodos hijos. Incluyendo nodos de texto y comentarios</h5>
+      <h4>(NODE) parentNode</h4>
+    <h5>Devuelve el nodo padre del nodo o NULL si no tiene</h5>
+      <h4>(NODE) firstChild</h4>
+    <h5>Devuelve el primer nodo hijo</h5>
+      <h4>(NODE) lastChild</h4>
+    <h5>Devuelve el último nodo hijo</h5>
+      <h4>(NODE) previousSibling</h4>
+    <h5>Devuelve el nodo hermano anterior o NULL si no tiene</h5>
+      <h4>(NODE) nextSibling</h4>
+    <h5>Devuelve el nodo hermano siguiente o NULL si no tiene</h5>
+
+    <pre><code class="language-html">
+    //Documento con clases e IDs para usar selectores
+    &lt;!DOCTYPE html>
+  &lt;html lang="es">
+  &lt;body>
+    &lt;div id="app">
+      &lt;div class="header">
+        &lt;h1>Titular&lt;/h1>
+      &lt;/div>
+      &lt;p>Párrafo de descripción&lt;/p>
+      &lt;a href="/">Enlace&lt;/a>
+    &lt;/div>
+  &lt;/body>
+  &lt;/html>
+
+  </code></pre>
+
+  <h2>USO</h2>
+   <pre><code class="language-javascript">
+  document.body.childNodes.length; //3 - Serían el "div", el "p" y el "a"
+  document.body.childNodes; //[text(salto de línea), div#app, text(salto de línea)]
+  document.body.parentNode; //&lthtml> - El padre de "body" que es HTML
+
+  const app = document.querySelector("#app"); //Selecciona "#app"
+
+  app.childNodes; //[text(salto de línea), div.header, text, p, text, a, text] - Hijos de "#app"
+  app.firstChild.textContent; //[text(salto de línea), div.header, text, p, text, a, text]
+  app.lastChild.textContent; //[text(salto de línea), div.header, text, p, text, a, text]
+
+  const a = app.querySelector("a");
+
+  a.previousSibling; //#text
+  a.nextSibling; //#text
+  </code></pre>
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/prism.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-scss.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-javascript.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-html.min.js"></script>
+
+</body>
+<footer class="footer">
+  <a class="botonFooter" href="index.html">INICIO</a>
+  <a class="botonFooter" href="dom.html">RETURN</a>
+  <a class="botonFooter" href="javascript.html">JAVASCRIPT</a>
+</footer>
+
+</html>

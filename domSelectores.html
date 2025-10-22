@@ -24,12 +24,24 @@
 </head>
 
 <body>
-  <h1>SELECTORES</h1>
-  <a href="index.html">RETURN</a>
+  <h1>DOM</h1>
+    <a class="return" href="dom.html">RETURN</a>
 
-  <h2>Selectores</h2>
+   <h2>Selectores</h2>
+
+   <h2>Métodos de seleccion de elementos</h2>
+    
+      <h4>getElementById( )</h4>
+    <h5>Selecciona un elemento por ID</h5>
+      <h4>getElementsByTagName( )</h4>
+    <h5>Selecciona todos los elementos que coincidan con el nombre de la etiqueta especificada</h5>
+      <h4>querySelector( )</h4>
+    <h5>Devuelve el primer elemento que coincida con el grupo especificado de selectores</h5>
+      <h4>querySelectorAll( )</h4>
+    <h5>Devuelve todos los elementos que coincidan con el grupo especificado de Selectores</h5>  
+
    <pre><code class="language-html">
-    //Creando documento con clases e IDs
+    //Documento con clases e IDs para usar selectores
     &lt;!DOCTYPE html>
   &lt;html lang="en">
   &lt;head>
@@ -53,8 +65,6 @@
   &lt;/html>
 
   </code></pre>
- 
-
   
   <pre><code class="language-javascript">
   // Seleccionar por ID
@@ -76,19 +86,50 @@
   // Devuelve el primer elemento que cumpla la condición
   let parrafo = document.querySelector('p');
 
-  // Devuelve NodeList
+  // Seleccionar CLASE
+  let parrafo = document.querySelector('.importante');
+
+  // Seleccionar ID
+  let parrafo = document.querySelector('#p1');
+
+  // Devuelve todos los elementos que cumplen con la condición - NodeList
   let parrafos2 = document.querySelectorAll('p');
 
   </code></pre>
 
+  <h2>Convertir en ARRAY</h2>
+   <pre><code class="language-javascript">
+    // Convertir un HTMLCollection o un NodeList en array
+    parrafos.map((p) => console.log(p)); // ERROR. .map no es una función
+
+    // Solución
+    let parrafosArray = [...parrafos]
+
+    parrafosArray // Ya es un array con todas sus funciones de array
+
+  </code></pre>
+
+  <pre><code class="language-javascript">
+    // Convertir un HTMLCollection o un NodeList en array
+    parrafos.map((p) => console.log(p)); // ERROR. .map no es una función
+
+    // Solución
+    let parrafosArray = [...parrafos]
+
+    parrafosArray // Ya es un array con todas sus funciones de array
+
+  </code></pre>
 
 <script src="https://cdn.jsdelivr.net/npm/prismjs@1/prism.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-scss.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-javascript.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-html.min.js"></script>
 
-
-
 </body>
+<footer class="footer">
+  <a class="botonFooter" href="index.html">INICIO</a>
+  <a class="botonFooter" href="dom.html">RETURN</a>
+  <a class="botonFooter" href="javascript.html">JAVASCRIPT</a>
+</footer>
 
 </html>

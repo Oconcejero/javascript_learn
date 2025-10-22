@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/prism.css">
+  <meta name="description" content="">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+  <meta property="og:image:alt" content="">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.png">
+
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+  <h1>EVENTOS</h1>
+    <a class="return" href="javascript.html">RETURN</a>
+   
+  <p>Los eventos son el idioma en el que Javascript entiende las acciones del usuario.</p>
+   
+  <h2>Métodos</h2>
+      <h4>Mediante HTML</h4>
+      <h4>Mediante Javascript</h4>
+      <h4>Mediante addEventListener</h4>
+    <h5>Método aconsejado</h5>
+
+  <h2>Mediante HTML</h2>
+      
+    <pre><code class="language-html">
+   &lt;script>
+      funtion mostrarAlert() {
+        alert('Botón pulsado');
+      }
+   &lt;/script>
+
+   &lt;button oneclick="mostrarAlert()">Prueba de botón&lt;/button>
+
+  </code></pre>
+
+    <h2>Mediante Javascript</h2>
+      
+    <pre><code class="language-html">
+      &lt;button>Prueba de botón&lt;/button>
+  
+        &lt;script>
+        const button = document.querySelector("button");
+        button.oneclick = function() {
+          alert("hello!")
+        }
+      &lt;/script>
+
+  </code></pre>
+
+      <h2>Mediante addEventListener</h2>
+      <p>Se puede realizar sobre cualquier elemento del DOM</p>
+      <p>Permite añadir una escucha del evento indicado (primer parámetro)
+        y en el caso de que ocurra, se ejecutará la función
+        asociada indicada (segundo parámetro)</p>
+    <pre><code class="language-javascript">
+      const button = document.querySelector("button");
+      button.addEventListener("click", function() {
+        alert("Hello!");
+      });
+
+      //Por medio de función
+      
+      function mostrarConsole(){
+        console.log('Escribiendo algo por consola');
+      }
+      
+      const button = document.querySelector("button");
+      button.addEventListener("click", mostrarConsole);
+
+      // Se puede eliminar "Escuchadores" con la función .removeEventListener
+  
+  </code></pre>
+
+    <h2>Objeto Event</h2>
+    <p>Cuando se produce un evento se produce una instancia del objeto event</p>
+    <pre><code class="language-javascript">
+      const button = document.querySelector("button");
+      button.addEventListener("click", function(event) {
+        alert("Hello!");
+        console.log(event);
+      });
+
+  </code></pre>
+      <h3>Propiedades</h3>
+      <div class="propieties">
+      <div class="box">
+        <h4>altKey</h4>
+        <h5>Devuelve si la tecla [Alt] fue pulsada durante el evento</h5>
+      </div>
+      <div class="box">
+        <h4>shiftKey</h4>
+        <h5>Devuelve si la tecla [Mayus] fue pulsada durante el evento</h5>
+      </div>
+      <div class="box">
+        <h4>ctrlKey</h4>
+        <h5>Devuelve si la tecla [Ctrl] fue pulsada durante el evento</h5>
+      </div>
+      <div class="box">
+        <h4>button</h4>
+        <h5>Devuelve el botón del ratón que activó el evento</h5>
+      </div>
+      <div class="box">
+        <h4>charCode</h4>
+        <h5>Contiene el valor Unicode de la tecla que se pulsó</h5>
+      </div>
+      <div class="box">
+        <h4>clientX</h4>
+        <h5>Coordenada X del ratón con respecto a la ventana</h5>
+      </div>
+      <div class="box">
+        <h4>clientY</h4>
+        <h5>Coordenada Y del ratón con respecto a la ventana</h5>
+      </div>
+      <div class="box">
+        <h4>pageX</h4>
+        <h5>Coordenada X del evento relativa al documento completo</h5>
+      </div>
+      <div class="box">
+        <h4>pageY</h4>
+        <h5>Coordenada Y del evento relativa al documento completo</h5>
+      </div>
+      <div class="box">
+        <h4>screenX</h4>
+        <h5>Coordenada X del evento con respecto a la pantalla</h5>
+      </div>
+      <div class="box">
+        <h4>screenY</h4>
+        <h5>Coordenada Y del evento con respecto a la pantalla</h5>
+      </div>
+      <div class="box">
+        <h4>target</h4>
+        <h5>Referencia al elemento que lanzó el evento</h5>
+      </div>
+      <div class="box">
+        <h4>timeStamp</h4>
+        <h5>Devuelve el momento en el que se creó el evento</h5>
+      </div>
+      <div class="box">
+        <h4>type</h4>
+        <h5>Nombre del evento</h5>
+      </div>
+    </div>
+
+      <div class="container">
+        <a href="eventosTipos.html">Tipos de Eventos</a>  
+      </div> 
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/prism.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-scss.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-javascript.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-html.min.js"></script>
+
+</body>
+<footer class="footer">
+  <a class="botonFooter" href="index.html">INICIO</a>
+  <a class="botonFooter" href="javascript.html">RETURN</a>
+</footer>
+</html>
