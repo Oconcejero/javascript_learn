@@ -6,6 +6,7 @@ body {
     margin-left: 5%;
     margin-right: 5%;
     max-width: 100%;
+
     .contenedor_botones {
         display: flex;
         justify-content: center;
@@ -21,14 +22,14 @@ body {
     }
     .return {
         display: block;
-        margin-left: 45%;
+        margin: 10px auto 5%;
         text-decoration: none;
         color: white;
         font-family: variables.$font-primary;
-        font-size: 25px;
+        font-size: 23px;
         padding: 15px 25px;
         width: 200px;
-        background-color: variables.$cuarto-color;
+        background-color: variables.$sexto-color;
         text-align: center;
         margin-top: 10px;
         border-radius: 5px;
@@ -39,10 +40,10 @@ body {
         text-decoration: none;
         color: white;
         font-family: variables.$font-primary;
-        font-size: 25px;
+        font-size: 23px;
         padding: 15px 25px;
-        width: 200px;
-        background-color: variables.$tercer-color;
+        width: 250px;
+        background-color: variables.$septimo-color;
         text-align: center;
         margin-top: 10px;
         border-radius: 5px;
@@ -52,9 +53,9 @@ body {
         text-decoration: none;
         color: white;
         font-family: variables.$font-primary;
-        font-size: 25px;
+        font-size: 23px;
         padding: 15px 25px;
-        width: 200px;
+        width: 250px;
         background-color: variables.$primer-color;
         text-align: center;
         margin-top: 10px;
@@ -64,42 +65,42 @@ body {
     a:hover {
         display: block;
         text-decoration: none;
-        color: black;
+        color: rgb(255, 255, 255);
         font-family: variables.$font-primary;
-        font-size: 25px;
+        font-size: 23px;
         padding: 15px 25px;
-        width: 200px;
+        width: 250px;
         background-color: variables.$segundo-color;
         text-align: center;
-        box-shadow: 1px 1px 15px rgb(240, 112, 112);
+        box-shadow: 1px 1px 15px rgb(71, 9, 243);
     }
     .container2 {
-            a {
+        a {
         display: block;
         text-decoration: none;
         color: rgb(255, 255, 255);
         font-family: variables.$font-primary;
-        font-size: 25px;
+        font-size: 23px;
         padding: 15px 25px;
-        width: 200px;
-        background-color: variables.$segundo-color;
+        width: 250px;
+        background-color: variables.$tercer-color;
         text-align: center;
         margin-top: 10px;
         border-radius: 5px;
         
-    }
-    a:hover {
-        display: block;
-        text-decoration: none;
-        color: black;
-        font-family: variables.$font-primary;
-        font-size: 25px;
-        padding: 15px 25px;
-        width: 200px;
-        background-color: variables.$tercer-color;
-        text-align: center;
-        box-shadow: 1px 1px 15px rgb(243, 108, 191);
-    }
+        }
+        a:hover {
+            display: block;
+            text-decoration: none;
+            color: black;
+            font-family: variables.$font-primary;
+            font-size: 23px;
+            padding: 15px 25px;
+            width: 250px;
+            background-color: variables.$cuarto-color;
+            text-align: center;
+            box-shadow: 1px 1px 15px rgb(108, 117, 243);
+        }
     }
     .container3 {
             a {
@@ -107,9 +108,9 @@ body {
         text-decoration: none;
         color: rgb(255, 255, 255);
         font-family: variables.$font-primary;
-        font-size: 25px;
+        font-size: 23px;
         padding: 15px 25px;
-        width: 200px;
+        width: 250px;
         background-color: variables.$cuarto-color;
         text-align: center;
         margin-top: 10px;
@@ -119,28 +120,31 @@ body {
     a:hover {
         display: block;
         text-decoration: none;
-        color: black;
+        color: rgb(255, 255, 255);
         font-family: variables.$font-primary;
-        font-size: 25px;
+        font-size: 23px;
         padding: 15px 25px;
-        width: 200px;
-        background-color: variables.$tercer-color;
+        width: 250px;
+        background-color: variables.$quinto-color;
         text-align: center;
-        box-shadow: 1px 1px 15px rgb(243, 108, 191);
+        box-shadow: 1px 1px 15px rgb(21, 39, 202);
     }
     }
     h2 {
         display: flex;
         justify-content: flex-start;
         font-family: variables.$font-primary;
-        color: variables.$cuarto-color;
+        color: variables.$sexto-color;
         font-size: 35px;
         margin-top: 35px;
         margin-left: 10%;
     }
     h3 {
         font-family: variables.$font-primary;
+        font-size: 25px;
         color: variables.$segundo-color;
+        margin-top: 10px;
+        margin-bottom: 10px;
     }
     p {
         font-family: variables.$font-primary;
@@ -171,6 +175,17 @@ body {
             background-color: rgb(37, 37, 37);
         }
     }
+    .botonesEventos {
+        display: flex;
+        gap: 5%;
+    }
+    hr {
+        background-color: #9617d1;
+        height: 3px;
+        border: none;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
 }
 .footer {
     display: flex;
@@ -197,13 +212,13 @@ body {
     .botonFooter:hover {
         display: block;
         text-decoration: none;
-        color: black;
+        color: rgb(255, 255, 255);
         font-family: variables.$font-primary;
         font-size: 25px;
         padding: 15px 25px;
         width: 200px;
-        background-color: variables.$sexto-color;
+        background-color: variables.$octavo-color;
         text-align: center;
-        box-shadow: 1px 1px 15px rgb(30, 121, 206);
+        box-shadow: 1px 1px 15px rgb(80, 80, 80);
     }
 }

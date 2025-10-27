@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/prism.css">
+  <meta name="description" content="">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+  <meta property="og:image:alt" content="">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.png">
+
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+  <h1>PROMESAS</h1>
+    <a class="return" href="javascript.html">RETURN</a>
+    <p>Son utilizadas, sobre todo, para hacer peticiones a otros servidores.
+      Representa en qué estado está una petición hecha a un servidor. <br> <br>
+      Pendiente - Pending <br>
+      Rechazada - Rejected <br>
+      Terminada - Fullfilled <br>
+    </p>
+  <h2>Promesas</h2>
+  <pre><code class="language-javascript">
+    // Declarar una promesas
+    //tiene dos parámetros que se pueden llamar de cualquier
+    //manera. Parámetro para cuando termine de forma correcta e incorrecta.
+    let p = new Promise((resolve, reject) => {
+
+    })
+  </code></pre>
+  <hr>
+  <pre><code class="language-javascript">
+    // Ejemplo promesa correcta
+    let p = new Promise((resolve, reject) => {
+      console.log("Ejecutando mi promesa");
+      resolve("La promesa se ha resuelto de forma correcta");
+    })
+    //p se habría ejecutado y sería "La promesa se ha resuelto de forma correcta"
+  </code></pre>
+
+  <pre><code class="language-javascript">
+    // Ejemplo promesa no correcta
+    let p = new Promise((resolve, reject) => {
+      console.log("Ejecutando mi promesa");
+      reject("La promesa se ha resuelto de forma correcta");
+    })
+    //p lanza un error al no estar controlado
+  </code></pre>
+<hr>
+<h2>Métodos</h2>
+<pre><code class="language-javascript">
+  //Veamos qué métodos tienen las promesas para poder capturar sus estados
+    //the: Se ejecuta cuando la promesa se resuelve
+    //catch: Se ejecuta cuando la promesa es rechazada
+    //finally: Se ejecuta siempre, tanto si la promesa se resuelve como si es rechazada
+
+    let p1 = new Promise((resolve,reject) => {
+      resolve("La promesa se ha resuelto de forma correcta");
+    });
+
+    let p2 = new Promise((resolve,reject) => {
+      setTimeout(() => {
+        resolve("La promesa se ha resuelto de forma correcta");
+      }, 10000);
+    });
+
+    let p3 = new Promise((resolve,reject) => {
+        reject("La promesa NO se ha resuelto de forma correcta");
+    });
+
+    p1.then(
+      (valordevuelto) => {
+        console.log(valordevuelto) //"La promesa se ha resuelto de forma correcta"
+      }
+    )
+
+    p3.then(
+      (valordevuelto) => {
+        console.log(valordevuelto); //Si no hay error
+      },
+      (valorsierror) => console.log("Error ", valorsierror) //Si hay error
+    );
+</code></pre>
+<hr>
+<h2>Encadenación de promesas</h2>
+<pre><code class="language-javascript">
+  p1.then((valor) => {
+    return valor; //retorna el valor de la primera promesa
+  }).then((valor2) => {
+    console.log("Segundothen: ", valor2); // devuelve el valor de la segunda promesa
+  });
+</code></pre>
+<hr>
+<h2>Uso de catch</h2>
+<pre><code class="language-javascript">
+  p1.then((valor) => {
+    return valor; //retorna el valor de la primera promesa
+  }).then((valor2) => {
+    console.log("Segundothen: ", valor2); // devuelve el valor de la segunda promesa
+  })
+  .catch((error) => {
+    console.log("Ha ocurrido un error", error);  
+  });
+  //Si alguna de las promesas da error salta el "catch" y da el error
+</code></pre>
+<hr>
+<h2>Uso de finally</h2>
+<pre><code class="language-javascript">
+  //Se ejecuta al final y siempre se ejecuta ya sea estando todo OK o no
+  p1.then((valor) => {
+    return valor;
+  }).then((valor2) => {
+    console.log("Segundothen: ", valor2);
+  })
+  .catch((error) => {
+    console.log("Ha ocurrido un error", error);  
+  })
+  .finally(() => {
+    console.log("Ejecutando finally");
+  });
+
+</code></pre>
+<hr>
+<h2>Métodos estáticos de PROMISE</h2>
+<pre><code class="language-javascript">
+  //Parar de forma manual una cadena de promesas
+    let pp1 = new Promise((resolve, reject) => {
+      resolve(18);
+    });
+
+    let pp2 = new Promise((resolve, reject) => {
+      console.log("Generando clave");
+      setTimeout(() => {
+        resolve("aklhdgsi4");
+      }, 5000);
+    });
+
+    pp1
+      .then((edad) => {
+        if (edad >= 18) {
+          console.log("Acceso autorizado");
+          return pp2;
+        } else {
+          return Promise.reject("Edad menor que 18");
+        }
+      })
+      .then((clave) => {
+        console.log("Tu clave es: ", clave);
+      })
+      .catch((e) => {
+        console.log("Ha ocurrido un error: ", e);
+      })
+      .finally(() => {
+        console.log("Cerrando la conexión");
+      });
+
+</code></pre>
+<hr>
+<h2>Funciones de carrera</h2>
+<p>Funciones de la clase promise que indican en qué orden se pueden ejecutar ciertas cosas</p>
+<pre><code class="language-javascript">
+  // Definamos nuestras promesas
+  const promise1 = Promise.reject(55);
+  const promise2 = 33;
+  const promise3 = new Promise((resolve, reject) => {
+    setTimeout(resolve, 1000, "Se ha ejecutado la promesa 3");
+  });
+
+  // // Promesas en serie
+  promise1
+    .then((valor) => {
+      console.log("valor", valor);
+      return promise2;
+    })
+    .then((valor2) => {
+      console.log("valor2", valor2);
+      return promise3;
+    })
+    .then((valor3) => {
+      console.log("valor3", valor3);
+    })
+    .catch((error) => {
+      console.error("Error", error);
+    })
+    .finally(() => {
+      console.log("Finally");
+    });
+
+</code></pre>
+<hr>
+<h2>Funciones de paralelo</h2>
+<p>Se usa cuando son independientes y queremos ejecutar algo cuando todas terminen.</p>
+<h3>Método all</h3>
+<pre><code class="language-javascript">
+  // .all: se resuelve cuando todas las promesas que le pasamos se resuelven
+  // Declaramos 3 promesas, una que resuelva instantánea, otra que devuelva un número y otra que resuelve en 1 segundo
+    const promise1 = Promise.reject(55);
+    const promise2 = 33;
+    const promise3 = new Promise((resolve, reject) => {
+      setTimeout(resolve, 1000, "Se ha ejecutado la promesa 3");
+    });
+
+    Promise.all([promise1, promise2, promise3])
+      .then((valoresRetornados) => console.log(valoresRetornados))
+      .catch((error) => console.error("Alguna promesa ha sido rechazada", error));
+      
+      //RESULTADO - (3) [55, 33, 'Se ha ejecutado la promesa 3']
+</code></pre>
+
+<h3>Método race</h3>
+<pre><code class="language-javascript">
+  // Método de carrera o Race de las promesas que se resuelve cuando la primera promesa de las que le pasamos se resuelve
+    const promise1 = Promise.reject(55);
+    const promise2 = 33;
+    const promise3 = new Promise((resolve, reject) => {
+      setTimeout(resolve, 1000, "Se ha ejecutado la promesa 3");
+    });
+    
+    Promise.race([promise1, promise2, promise3])
+        .then((valores) => console.log("all", valores))
+        .catch((error) => console.error("Error", error));
+
+        //RESULTADO - all 55
+</code></pre>
+
+<h3>Método any</h3>
+<pre><code class="language-javascript">
+// Método any de las promesas que se resuelve cuando alguna de las promesas de las que le pasamos se resuelve. Si alguna es rechazada la ignora y sigue con las demás
+    const promise1 = Promise.reject(55);
+    const promise2 = 33;
+    const promise3 = new Promise((resolve, reject) => {
+    setTimeout(resolve, 1000, "Se ha ejecutado la promesa 3");
+    });  
+
+  Promise.any([promise1, promise2, promise3])
+    .then((valor) => console.log("Any", valor))
+    .catch((error) => console.error("Error", error));
+
+        //RESULTADO - Any 33
+</code></pre>
+
+<h3>Método allSettled</h3>
+<pre><code class="language-javascript">
+// Método any de las promesas que se resuelve cuando alguna de las promesas de las que le pasamos se resuelve. Si alguna es rechazada la ignora y sigue con las demás
+    const promise1 = Promise.reject(55);
+    const promise2 = 33;
+    const promise3 = new Promise((resolve, reject) => {
+    setTimeout(resolve, 1000, "Se ha ejecutado la promesa 3");
+    });  
+
+// Método allSettled de las promesas que se resuelve cuando todas las promesas de las que le pasamos se resuelven o rechazan. No ejecuta catch
+  Promise.allSettled([promise1, promise2, promise3]).then((valores) =>
+    console.log("allSettled", valores)
+    );
+
+        //RESULTADO - array de todas las promesas
+        //allSettled (3) [{...}, {...}, {...}]
+            0: {status:'rejected', reason:55}
+            1: {status:'fulfilled', reason:33}
+            0: {status:'fulfilled', reason:'Se ha ejecutado la promesa 3'}
+            length: 3
+</code></pre>
+
+<h2>Argumentos</h2>
+<pre><code class="language-javascript">
+// Imaginemos una promesa que busca en un servidor el primer usuario que contenga la cadena 'Bienve' en su nombre
+
+  const buscarUsuario = (nombre) =>
+    new Promise((resolve, reject) => {
+      // Aquí buscar un usuario por nombre y devuelve el primero que encuentre
+      // buscarEnServidorUsuario(nombre);
+      console.log("Buscando un usuario con el nombre:", nombre);
+      let user = {
+        name: "Bienve Jose",
+        dni: 12345678,
+        edad: 19,
+      };
+      resolve(user);
+    });
+
+  const buscarActividad = (user, fechaActual) =>
+    new Promise((resolve, reject) => {
+      // Función que dado un usuario y una fecha, devuelve la actividad que ha hecho ese usuario en esa fecha
+      // buscarEnServidorActividad(user, fechaActual);
+      const actions = {
+        user: user,
+        activities: [
+          {
+            date: fechaActual,
+            text: "entrar",
+          },
+          {
+            date: fechaActual,
+            text: "nadar",
+          },
+          {
+            date: fechaActual,
+            text: "caminar",
+          },
+        ],
+      };
+      resolve(actions);
+    });
+
+  buscarUsuario("Bienve")
+    .then((user) => {
+      console.log("El usuario que se ha encontrado es:", user);
+      return buscarActividad(user, new Date());
+    })
+    .then((activities) => console.log(activities));
+</code></pre>
+
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/prism.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-scss.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-javascript.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-html.min.js"></script>
+
+</body>
+<footer class="footer">
+  <a class="botonFooter" href="index.html">INICIO</a>
+  <a class="botonFooter" href="javascript.html">RETURN</a>
+</footer>
+
+</html>

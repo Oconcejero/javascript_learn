@@ -35,7 +35,7 @@
       alias: "MoureDev"
   }
 </code></pre>
-
+<hr>
 <h2>Acceso a propiedades</h2>
 <pre><code class="language-javascript">
   // Notación punto
@@ -44,7 +44,7 @@
   // Notación de corchetes
   console.log(person["name"])
 </code></pre>
-
+<hr>
 <h2>Modificación de propiedades</h2>
 <pre><code class="language-javascript">
   person.name = "Brais Moure"
@@ -55,14 +55,14 @@
   console.log(person.age)
   console.log(typeof person.age)
 </code></pre>
-
+<hr>
 <h2>Eliminación de propiedades</h2>
 <pre><code class="language-javascript">
   delete person.age
 
   console.log(person)
 </code></pre>
-
+<hr>
 <h2>Nueva propiedad</h2>
 <pre><code class="language-javascript">
   person.email = "braismoure@mouredev.com"
@@ -70,7 +70,7 @@
 
   console.log(person)
 </code></pre>
-
+<hr>
 <h2>Métodos (funciones)</h2>
 <pre><code class="language-javascript">
   //A los objetos se les puede añadir funciones
@@ -84,7 +84,7 @@
   }
   person2.walk()
 </code></pre>
-
+<hr>
 <h2>Anidación de objetos</h2>
 <pre><code class="language-javascript">
   let person3 = {
@@ -112,7 +112,7 @@
   console.log(person3.job.name)
   person3.job.work()
 </code></pre>
-
+<hr>
 <h2>Igualdad de objetos</h2>
 <pre><code class="language-javascript">
   let person4 = {
@@ -134,14 +134,14 @@
   //igualar los valores para que sea "true"
   console.log(person.name == person4.name)
 </code></pre>
-
+<hr>
 <h2>Iteración</h2>
 <pre><code class="language-javascript">
   for (let key in person4) {
       console.log(key + ": " + person4[key])
   }
 </code></pre>
-
+<hr>
 <h2>Funciones como objetos</h2>
 <pre><code class="language-javascript">
   function Person(name, age) { // Debería ser una clase

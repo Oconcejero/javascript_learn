@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/prism.css">
+  <meta name="description" content="">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+  <meta property="og:image:alt" content="">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.png">
+
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+  <h1>EVENTOS PERSONALIZADOS</h1>
+    <a class="return" href="eventos.html">RETURN</a>
+    
+  <h2>Emisión de eventos</h2>
+  <h2>CustomEvent</h2>
+  <p>Se crea con 2 parámetros. el primer va a ser un string de como vamos a definir al evento y el segundo será un objeto</p>
+  <pre><code class="language-javascript">
+      const messageEvent = new CustomEvent("message", options);
+  </code></pre>
+  <div class="propieties">  
+    <div class="box">
+          <h4>(object)detail - NULL</h4>
+          <h5>Objeto que contiene la información que queremos transmitir</h5>
+        </div>
+        <div class="box">
+          <h4>(Boolean)bubbles - false</h4>
+          <h5>Indica si el evento debe burbujear en el DOM "hacia la superficie" o no</h5>
+        </div>
+        <div class="box">
+          <h4>(Boolean)composed - false</h4>
+          <h5>Indica si la propagación puede atravesar Shadow DOM o no</h5>
+        </div>
+        <div class="box">
+          <h4>(Boolean)cancelable - false</h4>
+          <h5>Indica si el comportamiento se puede cancelar con .preventDefault()</h5>
+        </div>
+      </div>
+  <h2>Propagación de eventos</h2>
+    <p>Al pulsar en el "p" hijo se ejecutan los 3 con la jerarquía de "hijo","padre"y"body"</p>  
+    <pre><code class="language-html">
+      //HTML
+    &lt;body>
+        &lt;h1>Eventos&lt;/h1>
+        &lt;button>Púlsame&lt;/button>
+          &lt;section class="padre">
+            &lt;p class="hijo">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Adipisci debitis totam sapiente eligendi recusandae
+            provident voluptas incidunt corporis maiores!&lt;/p>
+          &lt;/section>
+    &lt;/body>
+
+  </code></pre>
+
+    <pre><code class="language-javascript">
+      //JAVASCRIPT
+      let padre = document.querySelector(".padre");
+      let hijo = document.querySelector(".hijo");
+
+      document.body.addEventListener("click", () => {
+        console.log("Evento lanzado desde body");
+      })
+
+      padre.addEventListener("click", () => {
+        console.log("Evento lanzado desde padre");
+      })
+
+      hijo.addEventListener("click", () => {
+        console.log("Evento lanzado desde hijo");
+      })
+
+    </code></pre>
+
+        <p>Al pulsar en el "p" hijo se ejecutan los 3 con la jerarquía de "body","padre"y"hijo"</p>  
+
+    <pre><code class="language-javascript">
+      //JAVASCRIPT
+      let padre = document.querySelector(".padre");
+      let hijo = document.querySelector(".hijo");
+
+      document.body.addEventListener("click", () => {
+        console.log("Evento lanzado desde body");
+      }, true)
+
+      padre.addEventListener("click", () => {
+        console.log("Evento lanzado desde padre");
+      }, true)
+
+      hijo.addEventListener("click", () => {
+        console.log("Evento lanzado desde hijo");
+      }, true)
+
+    </code></pre>
+
+    <h2>stopPropagation</h2>
+      
+      <p>Para que el elemento no se propague y muera en el elemento que se ha producido</p>
+       
+      <pre><code class="language-javascript">
+      //JAVASCRIPT
+      let padre = document.querySelector(".padre");
+      let hijo = document.querySelector(".hijo");
+
+      document.body.addEventListener("click", () => {
+        console.log("Evento lanzado desde body");
+      })
+
+      padre.addEventListener("click", () => {
+        console.log("Evento lanzado desde padre");
+      })
+
+      hijo.addEventListener("click", (event) => {
+        event.stopPropagation();
+        console.log("Evento lanzado desde hijo");
+      })
+
+    </code></pre>
+     
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/prism.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-scss.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-javascript.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-html.min.js"></script>
+
+</body>
+<footer class="footer">
+  <a class="botonFooter" href="index.html">INICIO</a>
+  <a class="botonFooter" href="eventos.html">RETURN</a>
+  <a class="botonFooter" href="javascript.html">JAVASCRIPT</a>
+</footer>
+
+</html>

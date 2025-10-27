@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/prism.css">
+  <meta name="description" content="">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+  <meta property="og:image:alt" content="">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.png">
+
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+  <h1>FETCH</h1>
+    <a class="return" href="javascript.html">RETURN</a>
+    <p>Se usa para pedir o enviar datos a un servidos desde nuestro código javascript</p><br>
+    <p>Fetch siempre devuelve un apromesa resuelta</p><br>
+    <p>Siempre necesita dos parámetros. URL y un objeto con opciones</p><br>
+    <h2>Sintaxis</h2>
+<pre><code class="language-javascript">
+  fetch('http://example.com/movies.json')
+    .then(respone => response.json())
+    .then(data => console.log(data));
+</code></pre>
+
+    <h2>Ejemplo</h2>
+<pre><code class="language-javascript">
+    const URL = "https://jsonplaceholder.typicode.com/users/"; //Definimos una URL seleccionada
+
+    fetch(URL) //Esto define una promesa
+      .then((response) => response.json()) //Convierte la información en formato JSON
+      .then((users) => console.log(users[0])) //Devuelve el primer usuario de los users
+</code></pre>
+
+<h2>Capturar error</h2>
+<pre><code class="language-javascript">
+    const URL = "https://jsonplaceholder.typicode.com/users/a"; //Buscamos el uruario A que no existe
+
+    fetch(URL) //Esto define una promesa
+      .then((response) => response.json()) //Convierte la información en formato JSON
+      .then((user) => console.log(user)) //Devuelve el primer usuario de los users
+      .catch((error) => console.log(error)); //Nunca llega al catch porque la promesa ya estaba errónea
+</code></pre>
+
+<h2>Solución</h2>
+<pre><code class="language-javascript">
+    const URL = "https://jsonplaceholder.typicode.com/users/a"; //Buscamos el uruario A que no existe
+
+    fetch(URL) //Esto define una promesa
+      .then((response) => {
+        if (response.ok) {
+          console.log(response);
+          return response.json();
+        }
+        //Si no devuelve el OK devuelve el return
+        return Promise.reject('No se ha encontrado el usuario con ese identificador');
+      })
+
+      .then((user) => console.log(user))
+      .catch((error) => console.log(error));
+</code></pre>
+
+<h2>ASYNC y AWAIT</h2>
+<pre><code class="language-javascript">
+  const URLCARS = "https://myfakeapi.com/api/cars/";
+const URLUNIQUECAR = "https://myfakeapi.com/api/cars/5";
+
+  const getCars = async (year = 2010) => {
+    const cars = await fetch(URLCARS)
+      .then((response) => response.json())
+      .then((cars) => cars["cars"].filter((car) => car.car_model_year == year));
+    console.log(cars);
+  };
+
+  getCars(2011);
+
+  //Otra petición
+  const getCarsFromFirtCarYear = async () => {
+    const firstCarYear = await fetch(URLCARS)
+      .then((response) => response.json())
+      .then((cars) => cars["cars"][0].car_model_year); //Sacando el año del primer coche
+
+    const allCarsFilterByYear = await fetch(URLCARS)
+      .then((response) => response.json())
+      .then((cars) =>
+        cars["cars"].filter((car) => car.car_model_year == firstCarYear) //Filtrando todos los coches del año del primer coche
+      );
+    console.log(allCarsFilterByYear);
+  };
+
+  getCarsFromFirtCarYear();
+</code></pre>
+
+<h2>PRIMER POST</h2>
+<pre><code class="language-javascript">
+console.log("Empieza la clase 40 de JS");
+
+// https://jsonplaceholder.typicode.com/
+
+// Qué es una API
+// Listar => GET /todos/1
+// Crear => POST /todos
+// Modificar => PUT /todos/1
+// Borrar => DELETE /todos/1
+
+const URL_TODOS = "https://jsonplaceholder.typicode.com/todos";
+
+// fetch(URL_TODOS, {
+//   method: "POST", // GET, POST, PUT, DELETE, //Indica el método que estás usando
+//   headers: {
+//     "Content-Type": "application/json", //Indica el formato que estás pasando
+//   },
+//   body: JSON.stringify({
+//     userId: 1,
+//     title: "Esta es mi nueva tarea",
+//   }),
+// })
+//   .then((response) => response.json())
+//   .then((json) => {
+//     console.log(json);
+//     fetch(`${URL_TODOS}/10`)
+//       .then((response) => response.json())
+//       .then((todo) => console.log(todo));
+//   })
+//   .catch((error) => console.log(error));
+
+let form = document.getElementById("createTodo");
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  let todoName = document.getElementById("todoName");
+  let todoCompleted = document.getElementById("todoCompleted").checked;
+  let todoUser = document.getElementById("userTodo");
+  let saveTodo = document.getElementById("saveTodo");
+
+  saveTodo.disabled = true;
+  saveTodo.textContent = "Enviando...";
+  fetch(URL_TODOS, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      userId: todoUser.value,
+      title: todoName.value,
+      completed: todoCompleted,
+    }),
+  })
+    .then((response) => response.json())
+    .then((todo) => {
+      console.log(todo);
+      todoName.value = "";
+      todoCompleted.checked = false;
+      saveTodo.disabled = false;
+      saveTodo.textContent = "Guardar";
+      todoUser.value = "";
+    })
+    .catch((error) => console.log(error));
+});
+
+const getUsers = async () => {
+  const users = await fetch("https://jsonplaceholder.typicode.com/users/")
+    .then((response) => response.json())
+    .then((users) => users);
+
+  let userTodo = document.getElementById("userTodo");
+
+  users.map((user) => {
+    let newOption = document.createElement("option");
+    newOption.value = user.id;
+    newOption.textContent = user.name;
+    userTodo.appendChild(newOption);
+  });
+};
+
+getUsers();
+</code></pre>
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/prism.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-scss.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-javascript.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-html.min.js"></script>
+
+</body>
+<footer class="footer">
+  <a class="botonFooter" href="index.html">INICIO</a>
+  <a class="botonFooter" href="javascript.html">RETURN</a>
+</footer>
+
+</html>

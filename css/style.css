@@ -30,14 +30,14 @@ body h1 {
 }
 body .return {
   display: block;
-  margin-left: 45%;
+  margin: 10px auto 5%;
   text-decoration: none;
   color: white;
   font-family: "Roboto", sans-serif;
-  font-size: 25px;
+  font-size: 23px;
   padding: 15px 25px;
   width: 200px;
-  background-color: #10AEF1;
+  background-color: #9c52f0;
   text-align: center;
   margin-top: 10px;
   border-radius: 5px;
@@ -48,10 +48,10 @@ body .return:hover {
   text-decoration: none;
   color: white;
   font-family: "Roboto", sans-serif;
-  font-size: 25px;
+  font-size: 23px;
   padding: 15px 25px;
-  width: 200px;
-  background-color: #F11050;
+  width: 250px;
+  background-color: #7808f8;
   text-align: center;
   margin-top: 10px;
   border-radius: 5px;
@@ -61,10 +61,10 @@ body a {
   text-decoration: none;
   color: white;
   font-family: "Roboto", sans-serif;
-  font-size: 25px;
+  font-size: 23px;
   padding: 15px 25px;
-  width: 200px;
-  background-color: #8810F1;
+  width: 250px;
+  background-color: #2b07fc;
   text-align: center;
   margin-top: 10px;
   border-radius: 5px;
@@ -72,24 +72,24 @@ body a {
 body a:hover {
   display: block;
   text-decoration: none;
-  color: black;
+  color: rgb(255, 255, 255);
   font-family: "Roboto", sans-serif;
-  font-size: 25px;
+  font-size: 23px;
   padding: 15px 25px;
-  width: 200px;
-  background-color: #E610F1;
+  width: 250px;
+  background-color: #7107fc;
   text-align: center;
-  box-shadow: 1px 1px 15px rgb(240, 112, 112);
+  box-shadow: 1px 1px 15px rgb(71, 9, 243);
 }
 body .container2 a {
   display: block;
   text-decoration: none;
   color: rgb(255, 255, 255);
   font-family: "Roboto", sans-serif;
-  font-size: 25px;
+  font-size: 23px;
   padding: 15px 25px;
-  width: 200px;
-  background-color: #E610F1;
+  width: 250px;
+  background-color: #b707fc;
   text-align: center;
   margin-top: 10px;
   border-radius: 5px;
@@ -99,22 +99,22 @@ body .container2 a:hover {
   text-decoration: none;
   color: black;
   font-family: "Roboto", sans-serif;
-  font-size: 25px;
+  font-size: 23px;
   padding: 15px 25px;
-  width: 200px;
-  background-color: #F11050;
+  width: 250px;
+  background-color: #fc07db;
   text-align: center;
-  box-shadow: 1px 1px 15px rgb(243, 108, 191);
+  box-shadow: 1px 1px 15px rgb(108, 117, 243);
 }
 body .container3 a {
   display: block;
   text-decoration: none;
   color: rgb(255, 255, 255);
   font-family: "Roboto", sans-serif;
-  font-size: 25px;
+  font-size: 23px;
   padding: 15px 25px;
-  width: 200px;
-  background-color: #10AEF1;
+  width: 250px;
+  background-color: #fc07db;
   text-align: center;
   margin-top: 10px;
   border-radius: 5px;
@@ -122,27 +122,30 @@ body .container3 a {
 body .container3 a:hover {
   display: block;
   text-decoration: none;
-  color: black;
+  color: rgb(255, 255, 255);
   font-family: "Roboto", sans-serif;
-  font-size: 25px;
+  font-size: 23px;
   padding: 15px 25px;
-  width: 200px;
-  background-color: #F11050;
+  width: 250px;
+  background-color: #a3cff3;
   text-align: center;
-  box-shadow: 1px 1px 15px rgb(243, 108, 191);
+  box-shadow: 1px 1px 15px rgb(21, 39, 202);
 }
 body h2 {
   display: flex;
   justify-content: flex-start;
   font-family: "Roboto", sans-serif;
-  color: #10AEF1;
+  color: #9c52f0;
   font-size: 35px;
   margin-top: 35px;
   margin-left: 10%;
 }
 body h3 {
   font-family: "Roboto", sans-serif;
-  color: #E610F1;
+  font-size: 25px;
+  color: #7107fc;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 body p {
   font-family: "Roboto", sans-serif;
@@ -173,6 +176,17 @@ body .propieties .box {
   padding: 15px;
   background-color: rgb(37, 37, 37);
 }
+body .botonesEventos {
+  display: flex;
+  gap: 5%;
+}
+body hr {
+  background-color: #9617d1;
+  height: 3px;
+  border: none;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
 
 .footer {
   display: flex;
@@ -199,14 +213,14 @@ body .propieties .box {
 .footer .botonFooter:hover {
   display: block;
   text-decoration: none;
-  color: black;
+  color: rgb(255, 255, 255);
   font-family: "Roboto", sans-serif;
   font-size: 25px;
   padding: 15px 25px;
   width: 200px;
-  background-color: #99BDC2;
+  background-color: #636363;
   text-align: center;
-  box-shadow: 1px 1px 15px rgb(30, 121, 206);
+  box-shadow: 1px 1px 15px rgb(80, 80, 80);
 }
 
 /*# sourceMappingURL=style.css.map */

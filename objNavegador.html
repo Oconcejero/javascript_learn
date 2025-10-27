@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/prism.css">
+  <meta name="description" content="">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+  <meta property="og:image:alt" content="">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.png">
+
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+  <h1>OBJETOS DE NAVEGADOR</h1>
+  
+    <a class="return" href="dom.html">RETURN</a>
+    <p>Pequeño archivo de texto enviado por un sitio web y almacenado en el navegador del usuario, cuyas actividades y preferencias captura. Usado menos como masculino.</p> 
+    <h2>Cookies</h2>
+    <h4><a target="_blank" href="https://es.javascript.info/cookie">TEORÍA</a></h4>
+    <h4>Escribir en document.cookie</h4>
+    <pre><code class="language-javascript">
+      //Setea una nueva si no existe y si existe la actualiza
+      document.cookie = "user=John"; // modifica solo la cookie llamada 'user'
+      alert(document.cookie); // muestra todas las cookies
+    </code></pre>
+<hr>
+    <h2>path</h2>
+    <pre><code class="language-javascript">
+      De forma predeterminada, una cookie desaparece cuando el
+      navegador se cierra. Tales cookies se denominan “cookies
+      de sesión”. Para que las cookies sobPrevivan al cierre del
+      navegador, podemos establecer uno de estos atrubutos: expires o max-age.
+
+      // +1 día desde ahora
+      let date = new Date(Date.now() + 86400e3);
+      date = date.toUTCString();
+      document.cookie = "user=John; expires=" + date;
+
+      Si establecemos expires en una fecha en el pasado, la cookie es eliminada.
+      max-age=3600
+      max-age es una alternativa a expires, y especifica la expiración de la cookie
+      en segundos desde el momento actual.
+      Si la configuramos a cero, o a un valor negativo, la cookie se elimina:
+
+      // la cookie morirá en +1 hora a partir de ahora
+      document.cookie = "user=John; max-age=3600";
+
+      // borra la cookie (la hacemos expirar ya)
+      document.cookie = "user=John; max-age=0";
+    </code></pre>
+
+    <h2>expires, max-age</h2>
+    <pre><code class="language-javascript">
+      La ruta URL del prefijo path debe ser absoluta.
+      Esto hace que la cookie sea accesible a las páginas bajo esa ruta.
+      De forma predeterminada, es la ruta actual.
+      Si una cookie se establece con path=/admin, será
+      visible en las páginas /admin y /admin/something,
+      pero no en /home, /adminpage, o /.
+      Lo usual es establecer path en la raíz: path=/,
+      para hacer la cookie accesible a todas las páginas del sitio web
+    </code></pre>
+
+    <h2>Setear cookie</h2>
+    <pre><code class="language-javascript">
+      // devuelve la cookie con el nombre dado,
+      // o undefined si no la encuentra
+      function getCookie(name) {
+        let matches = document.cookie.match(new RegExp(
+          "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+        ));
+        return matches ? decodeURIComponent(matches[1]) : undefined;
+      }
+
+      getCookie('name') //Devuelve la cookie seteada
+    </code></pre>
+
+    <h2>setCookie(name, value, attributes)</h2>
+    <pre><code class="language-javascript">
+      function setCookie(name, value, attributes = {}) {
+
+        attributes = {
+          path: '/',
+          // agregar otros valores predeterminados si es necesario
+          ...attributes
+        };
+
+        if (attributes.expires instanceof Date) {
+          attributes.expires = attributes.expires.toUTCString();
+        }
+
+        let updatedCookie = encodeURIComponent(name) + "=" + encodeURIComponent(value);
+
+        for (let attributeKey in attributes) {
+          updatedCookie += "; " + attributeKey;
+          let attributeValue = attributes[attributeKey];
+          if (attributeValue !== true) {
+            updatedCookie += "=" + attributeValue;
+          }
+        }
+
+        document.cookie = updatedCookie;
+      }
+
+      // Ejemplo de uso:
+      setCookie('user', 'John', {secure: true, 'max-age': 3600});
+    </code></pre>
+
+    <h2>Borrar cookie</h2>
+    <pre><code class="language-javascript">
+    function deleteCookie(name) {
+        setCookie(name, "", {
+          'max-age': -1 //Al ponerle un valor -1 se elimina
+        })
+      }
+    </code></pre>
+<hr>
+    <h2>LocalStorage y SessionStorage</h2>
+    <h4><a target="_blank" href="https://es.javascript.info/localstorage">TEORÍA</a></h4>
+    <h3>Propiedades</h3>
+    <div class="propieties">
+      <div class="box">
+        <h4>setItem (clave, valor)</h4>
+        <h5>Almacenar un par clave/valor.</h5>
+      </div>
+      <div class="box">
+        <h4>getItem(clave)</h4>
+        <h5>Obtener el valor por medio de la clave.</h5>
+      </div>
+      <div class="box">
+        <h4>removeItem(clave)</h4>
+        <h5>Eliminar la clave y su valor.</h5>
+      </div>
+      <div class="box">
+        <h4>clear( )</h4>
+        <h5>Borrar todo.</h5>
+      </div>
+      <div class="box">
+        <h4>key(índice)</h4>
+        <h5>Obtener la clave de una posición dada.</h5>
+      </div>
+      <div class="box">
+        <h4>length</h4>
+        <h5>El número de ítems almacenados.</h5>
+      </div>
+    </div>
+<hr>
+    <h3>Acceso tipo objeto</h3>
+    <pre><code class="language-javascript">
+      // guarda una clave
+      localStorage.test = 2;
+
+      // coge una clave
+      alert( localStorage.test ); // 2
+
+      // borra una clave
+      delete localStorage.test;
+
+    </code></pre>
+
+    <h3>Iterar sobre las claves</h3>
+      <pre><code class="language-javascript">
+        for(let i=0; i < localStorage.length; i++) {
+          let key = localStorage.key(i);
+          alert(`${key}: ${localStorage.getItem(key)}`);
+        }
+
+      </code></pre>
+<hr>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/prism.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-scss.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-javascript.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-html.min.js"></script>
+
+  </body>
+  <footer class="footer">
+    <a class="botonFooter" href="index.html">INICIO</a>
+    <a class="botonFooter" href="dom.html">RETURN</a>
+    <a class="botonFooter" href="javascript.html">JAVASCRIPT</a>
+  </footer>
+
+</html>
